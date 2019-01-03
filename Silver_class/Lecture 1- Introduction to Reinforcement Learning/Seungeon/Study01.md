@@ -48,4 +48,5 @@ Introduction to Reinforcement Learning
 
 
 7. Markov State
-  - State가 Markov하다는 것은, 어떤 상태가 이전 상태에만 영향을 받아 다음 상태로 간다는 것
+  - State가 Markov하다는 것은, 어떤 상태가 현재 상태에만 영향을 받아 다음 상태로 간다는 것
+  -
