@@ -49,4 +49,12 @@ Introduction to Reinforcement Learning
 
 7. Markov State
   - State가 Markov하다는 것은, 어떤 상태가 현재 상태에만 영향을 받아 다음 상태로 간다는 것
-  -
+
+
+8. Fully Observable Environments
+  - agent directly observes environment state
+    > O(t) = S(t,a)
+  - 자동차로 치면, 라이다가 한 바퀴 돎에따라, partially observable하게 환경을 알 수 있다.
+  - POMDP (Partially Observable MDP)
+    > Complete history : S(t,a) = H(t)
+    > Beliefs of environment state : S(t,a) = (P[S(t,e)=s1], ... , P[S(t,e)=sn])
