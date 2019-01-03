@@ -34,9 +34,12 @@ Introduction to Reinforcement Learning
 
 5. Environment의 state
   - 환경이 observation과 reward를 계산하기 위해 쓰는 정보들이 바로 state이다.
-    > 자동차로 치면, 스티어링 앵글, 엑셀 페달 포지션 등 agent가 알아봤자 쓸모 없는 것들
-    이지만, environment가 action을 받아서 다음 상태가 되기까지에는 꼭 필요한 정보
+    > 자동차로 치면, 스티어링 앵글, 엑셀 페달 포지션 등 agent가 알아봤자 쓸모 없는 것들 이지만, environment가 action을 받아서 다음 상태가 되기까지에는 꼭 필요한 정보
 
 6. Agent의 state
   - 다음 action을 해야 할 때, 필요한 정보들
     > 자동차로 치면, 현재 기어 단 수, 현재 속도, 100m 앞의 신호등 색 등
+  - 예전에 있었던 reward, observation, action등의 정보를 바로 쓸 수도 있고, 가공해서 사용할 수도 있다.
+
+7. Markov State
+  -
