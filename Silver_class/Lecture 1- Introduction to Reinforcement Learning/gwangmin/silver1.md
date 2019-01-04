@@ -67,3 +67,38 @@ v_ㅠ(s) = E[G_t|S_t=s]
 Env가 다음에 할 행동을 예측하는게 Model  
 P_ss’a = P[S_t+1=s’|S_t=s, A-t=a]  
 R_sa = E[R_t+1|S_t=s, A_t=a]  
+Agent가 가진 model은 대부분 불안전  
+### Dynamics란?  
+How actions change the state  
+
+# RL Agent의 종류  
+### Value Based  
+Value Func 가지고 Policy를 구함  
+### Policy Based  
+직접 Policy를 구함  
+### Actor-Critic  
+위의 두 가지를 결합  
+### Model Free
+Model X
+### Model Based
+Model O
+
+# Learning and Planning
+### Learning
+처음엔 환경을 모름  
+환경과 상호작용하며 Policy를 발전시켜나감  
+### Planning
+처음부터 환경을 알고 계산을 통해 Policy를 발전시켜나감  
+E.g. tree search  
+
+# Exploit and Exploration
+### Exploit
+알고 있는 정보를 이용
+### Exploration
+새로운 정보를 얻기 위한 새로운 시도  
+
+# Prediction and Control
+### Prediction
+가치 함수를 학습
+### Control
+가치 함수로 Policy를 구함  
