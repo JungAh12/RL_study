@@ -85,14 +85,3 @@ Agent는 Value based(미로에서-1)와 policy based(화살표)가 존재할 수
 Actor critic은 Policy와 Value를 둘다 사용하는 모델
 Model free(모델이 없지만, policy와 value가 존재(직접))
 Model Based(모델을 구축하고, Policy와 Value를 제공)
-
-Problems within RL
-------------------
-1. 환경의 Initial이 알려져 있지 않는다.
-2. 환경은 알고 있다.
-
-RL은 시행착오 학습 방법이다.
-
-Exploration : 새로운 정보를 찾는다.
-Exploitation : 가장 최적의 정보를 찾는다 .
-
