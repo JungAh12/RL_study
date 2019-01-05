@@ -44,7 +44,17 @@ About Reinforcement Learning
  
 * Agent State
   * Agent State는 Environment State를 함축시킨 정보들을 획득하고,
-  * 이를 토대로 Action을 취합니다.
+  * 이를 토대로 Action을 취한다.
 
-* 
- 
+* Information State
+  * Information State(Markov State)는 History의 유용한 정보들을 함축하고 있다.
+  * “The future is independent of the past given the present” 
+  * 현재의 상태를 획득하면 과거 History들은 쓸모 없다.
+
+* Environment
+  * Fully Observable Environments : Agent State와 Environment State와 Information State가 동일하다. -> MDP
+    -> Own State를 Complete History, Baysian Distribution, RNN etc.. 으로 구축할 수 있다.
+  * Partial Observable Environments : Agent State와 Environment State가 다르다. -> POMDP
+    
+3. Inside An RL Agent
+* Agent, Action(Joystick), Env(Game Machine), Observation(Game Screen), Reward( Score)
