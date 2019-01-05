@@ -14,6 +14,6 @@ About Reinforcement Learning
   * 예를 들어, 로봇이 걸어가는 방향에 따라서 데이터가 매우 달라진다.
   
 2. The Reinforcement Learning Problem
-* Reward R_t
+* Reward $$R_t
 
 
