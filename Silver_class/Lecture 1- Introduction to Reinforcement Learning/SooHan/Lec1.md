@@ -3,7 +3,6 @@ Lec 1 : Introduction to Reinforcement Learning
 ==============================================
 
 About Reinforcement Learning
-
 -------------------------------
 
 강화학습의 특징
@@ -15,8 +14,8 @@ About Reinforcement Learning
   
   
 The Reinforcement Learning Problem
-
 ----------------------------------
+
 Reward
   * Reward를 최대로 하는 것이 RL의 목표이다.
   * scalar feedback signal이다.
@@ -61,5 +60,39 @@ Environment
 Agent, Action(Joystick), Env(Game Machine), Observation(Game Screen), Reward( Score)
 
 Inside An RL Agent
---------------------------------
+----------------------------
+
+Major Components of an RL Agent
+  * Policy : Agent의 Action 함수
+  * Value Function : 각각의 상태와 행동에 대한 정도
+  * model : 환경에서의 Agent
+  
+Policy
+  * Agent의 행동이다.
+  * Deterministic Policy : Action은 State의 함수
+  * Stochastic Policy : 어떠한 상태일때의 행동에 대한 확률
+  
+Value Function
+  * 미래로부터 예측된 Reward이다.
+  * Goodness / Badness로 평가된다.
+  * state에서의 행동에 대한 Value
+  * 상태가 s일때 Reward들의 합(기대값), 현재의 상태에 가중치를 주기 위해서 gamma라는 scale factor를 추가한다.
+
+Model
+  * Environment에서의 Agent
+  
+Agent는 Value based(미로에서-1)와 policy based(화살표)가 존재할 수 있다.
+Actor critic은 Policy와 Value를 둘다 사용하는 모델
+Model free(모델이 없지만, policy와 value가 존재(직접))
+Model Based(모델을 구축하고, Policy와 Value를 제공)
+
+Problems within RL
+------------------
+1. 환경의 Initial이 알려져 있지 않는다.
+2. 환경은 알고 있다.
+
+RL은 시행착오 학습 방법이다.
+
+Exploration : 새로운 정보를 찾는다.
+Exploitation : 가장 최적의 정보를 찾는다 .
 
