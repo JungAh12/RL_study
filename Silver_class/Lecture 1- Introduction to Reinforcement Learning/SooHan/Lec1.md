@@ -1,3 +1,5 @@
+html header: <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 Lec 1 : Introduction to Reinforcement Learning
 
 ==============================================
@@ -14,6 +16,6 @@ About Reinforcement Learning
   * 예를 들어, 로봇이 걸어가는 방향에 따라서 데이터가 매우 달라진다.
   
 2. The Reinforcement Learning Problem
-* Reward \\({R}_t\\)
+* Reward \\{R}_t\\
 
 
