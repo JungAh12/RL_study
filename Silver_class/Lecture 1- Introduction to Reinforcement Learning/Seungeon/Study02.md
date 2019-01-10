@@ -197,24 +197,26 @@ Marcov Decision Process
   - There is always a deterministic optimal policy for any MDP
   - if we know q_*(s,a), we immediately have the optimal policy
 
-19. Bellman Optimality Equation for v_*
+19. Bellman Optimality Equation
   The optimal value function are recursively related by the Bellman optimality equations :
-    v_**(s) = {a} max(q_**(s,a))
+    v_**(s)   = {a} max(q_**(s,a))
 
+    q_**(s,a) = R^a_s + 𝛾 * {s' ∈ S} Σ P^a_ss' v_**(s')
 
+    v_**(s)   = {a} max (R^a_s) + 𝛾 * {s' ∈ S} Σ P^a_ss' v_**(s')
 
+    q_**(s,a) = R^a_s + 𝛾 * {s' ∈ S} Σ P^a_ss' q_**(s', a')
 
+20. Solving the Bellman Optimality Equation
+  - Bellman Optimality Equation is non-linear
+  - No closed form solution (in general)
+  - Many iterative solution methods
+    - Value iteration
+    - Policy iteration
+    - Q-learning
+    - Sarsa
 
-
-
-
-
-
-
-
-
-
-
-
-
-asdf
+21. Extensions to MDPs
+  - Infinite and continous MDPs
+  - Partially observable MDPs
+  - Undiscounted, average reward MDPs
