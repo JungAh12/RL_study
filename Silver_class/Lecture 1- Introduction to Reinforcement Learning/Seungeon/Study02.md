@@ -197,6 +197,9 @@ Marcov Decision Process
   - There is always a deterministic optimal policy for any MDP
   - if we know q_*(s,a), we immediately have the optimal policy
 
+19. Bellman Optimality Equation for v_*
+  The optimal value function are recursively related by the Bellman optimality equations :
+    v_*(s) = {a} max(q_*(s,a))
 
 
 
