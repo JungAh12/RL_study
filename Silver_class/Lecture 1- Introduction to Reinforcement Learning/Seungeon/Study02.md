@@ -181,10 +181,12 @@ Marcov Decision Process
         𝜋_* >= ∀𝜋
 
       - All optimal policies achieve the optimal value function
-        > v_𝜋*(s) = v_*(s)
+        >
+          v_𝜋*(s) = v_*(s)
 
       - All optimal policies achieve the optimal action-value function,
-        > q_𝜋*(s,a) = q_*(s,a)
+        >
+          q_𝜋*(s,a) = q_*(s,a)
 
 18. Finding an Optimal Policy
   An optimal policy can be found by maximising over q_*(s,a)
@@ -199,7 +201,8 @@ Marcov Decision Process
 
 19. Bellman Optimality Equation for v_*
   The optimal value function are recursively related by the Bellman optimality equations :
-    > v_*(s) = {a} max(q_*(s,a))
+    >
+      v_*(s) = {a} max(q_*(s,a))
 
 
 
