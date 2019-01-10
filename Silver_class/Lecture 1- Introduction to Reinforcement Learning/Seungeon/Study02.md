@@ -62,28 +62,69 @@ Marcov Decision Process
   - Animal / human behaviour shows preference for immediate reward
   - It is sometimes possible to use undiscounted Markov reward processes (i.e. 𝛾 = 1), e.g. if all sequences terminate.
 
-8. asdf
-  sdf
+8. State-value function
+  The value function v(s) gives the long-term value of state s
 
+    > Definition
+      The stete value function v(s) of an MRP is the expected return starting from state s
+        v(s) = E[G_t | S_t = s]
 
+9. Bellman Equation for MRPs
+  The value function can be decomposed into two parts :
+    immediate reward R_(t+1)
+    discounted value of successor state 𝛾 * v(S_(t+1))
+      v(s) = E[G_t | S_t = s]
+           = E[R_(t+1) + 𝛾 * R_(t+2) + 𝛾^2 * R_(t+2) + ... | S_t = s]
+           ...
+           = E[R_(t+1) + 𝛾 * G_(t+1) | S_t = s]
+           = E[R_(t+1) + 𝛾 * v(S_(t+1)) | S_t = s]
 
+      v(s) = R_s + 𝛾 * {s' ∈ S} Σ 𝑃_𝑠𝑠′ ∗ 𝑣(𝑠′)
 
+    Vector식으로 표현을 하게 되면
+      v = R + 𝛾Pv, where v is a column vector with one entry per state
+      [v(1), ... , v(n)]' = [R(1), ... , R(n)]' + 𝛾 * [P_11 ... P_1n ; P_21, ... P_2n ; ... P_nn] * [v(1), ... , v(n)]'
 
+10. Solving the Bellman Equation
 
+   - The bellman equation is a linear euqation
+   - It can be solved directly
+              v = R + 𝛾Pv
+      (I - 𝛾P)v = R
+              v = (I - 𝛾P)^-1 * R
+   - Computational complexity is O(n^3) for n states
+   - Direct solution only possible for small MPRs
+   - There are many iterative methods for large MRPs, e.g.
+     Dynamic programming
+     Monte-Carlo evaluation
+     Temporal-Difference learning
 
+11. Markov Decision Process
+  A Markov decision process (MDP) is a Markov reward process with decisions.
+  It is an environment in which all states are Markov.
 
+    > Definition
+      A Markov Decision Process is a tuple <S, A, P, R, 𝛾>
+      - S is a finite set of states
+      - A is a finite set of actions
+      - P is a state transition probability matrix,
+        P^a_ss' = P[S_(t+1) = s' | S_t = s, A_t = a]
+      - R is a reward function, R^a_s = E[R_(t+1) | S_t = s, A_t = a]
+      - 𝛾 is a discount factor 𝛾 ∈ [0, 1].
 
+12. Policies
 
+    > Definition
+      A policy 𝜋 is a distribution over actions given states,
+        𝜋(a|s) = P[A_t = a | S_t = s]
 
+      - A policy fully defines the behaviour of an agent
+      - MDP policies depend on the current state (not the history)
+      - i.e. Policies are stationary (time-independent),
+        A_t ~ 𝜋(∙|S_t), ∀t > 0
 
-
-
-
-
-
-
-
-
+  - Given an MDP M = <S, A, P, R, 𝛾> and a policy 𝜋
+  - The state
 
 
 
