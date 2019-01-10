@@ -85,7 +85,7 @@ Marcov Decision Process
       v = R + 𝛾Pv, where v is a column vector with one entry per state
       [v(1), ... , v(n)]' = [R(1), ... , R(n)]' + 𝛾 * [P_11 ... P_1n ; P_21, ... P_2n ; ... P_nn] * [v(1), ... , v(n)]'
 
-10. Solving the Bellman Equation
+10. Solving the Bellman Equation in MRPs
 
    - The bellman equation is a linear euqation
    - It can be solved directly
@@ -124,11 +124,77 @@ Marcov Decision Process
         A_t ~ 𝜋(∙|S_t), ∀t > 0
 
   - Given an MDP M = <S, A, P, R, 𝛾> and a policy 𝜋
-  - The state
+  - The state sequence S_1, S_2, ... is a Markov process <S, P^𝜋>
+  - The state and reward sequence S_1, R_2, S_2, ... is a Markov reward process <S, P^𝜋, R^𝜋, 𝛾>
+  - where
+    P^𝜋_ss' = {a ∈ A} 𝜋(a|s) * P^a_ss'
+    R^𝜋_s   = {a ∈ A} 𝜋(a|s) * R^a_s
 
+13. Value function
 
+    > State-value function v(s) Definition
+      The state-value function v_𝜋(s) of an MDP is the expected return starting from state s, and then following polic 𝜋
+        v_𝜋(s) = E_𝜋[G_t | S_t = s]
 
+    > Action-value function q(s,a) Definition
+      The action-value function q_𝜋(s,a) is the expected return starting from state s, taking action a, and then following policy 𝜋
+        q_𝜋(s,a) = E_𝜋[G_t | S_t = s, A_t = a]
 
+14. Bellman Expectaion Equation
+  The state-value function can again be decomposed into immediate reward plus discounted value of successor state,
+
+    v_𝜋(s) = E_𝜋[R_(t+1) + 𝛾 * v_𝜋(S_(t+1)) | S_t = s]
+
+  The action-value function can similarly be decomposed.
+
+    q_𝜋(s,a) = E_𝜋[R_(t+1) + 𝛾 * q_𝜋(S_(t+1), A_(t+1)) | S_t = s, A_t = a]
+
+15. Bellman Expectation Equation (Matrix Form)
+  The Bellman expectation equation can be expressed concisely using the induced MRP,
+
+            v_𝜋 = R^𝜋 + 𝛾 * P^𝜋 * v_𝜋
+    with direct solution
+            v_𝜋 = (I - 𝛾 * P^𝜋)^-1 * R^𝜋
+
+16. Optimal Value function
+
+  - The optimal value function specifies the best possible performance in the MDP
+  - An MDP is "solved" when we know the optimal value function
+
+    > Definition
+      The optimal state-value function v_*(s) is the maximum value function over all policies
+        v_*(s) = {𝜋} max (v_𝜋(s))
+
+      The optimal action-value function q_*(s,a) is the maximum action-value function over all policies
+        q_*(s,a) = {𝜋} max (q_𝜋(s,a))
+
+17. Optimal policy
+
+  Define a partial ordering over policies
+
+    𝜋 >= 𝜋' if v_𝜋(s) >= v_𝜋'(s), ∀s
+
+    > Theorem
+      For any Markov Decision Process
+
+      - There exists an optimal policy 𝜋_* that is better than or equal to all other policies,
+        𝜋_* >= ∀𝜋
+
+      - All optimal policies achieve the optimal value function
+        v_𝜋*(s) = v_*(s)
+
+      - All optimal policies achieve the optimal action-value function,
+        q_𝜋*(s,a) = q_*(s,a)
+
+18. Finding an Optimal Policy
+  An optimal policy can be found by maximising over q_*(s,a)
+
+                1    if a = {a ∈ A} argmax (q_*(s,a))
+    𝜋_*(a|s) =
+                0    otherwise
+
+  - There is always a deterministic optimal policy for any MDP
+  - if we know q_*(s,a), we immediately have the optimal policy
 
 
 
