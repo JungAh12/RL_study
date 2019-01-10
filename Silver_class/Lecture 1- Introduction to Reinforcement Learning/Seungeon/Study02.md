@@ -188,6 +188,7 @@ Marcov Decision Process
 
 18. Finding an Optimal Policy
   An optimal policy can be found by maximising over q_*(s,a)
+  q_*를 알면, 특정 상태에서 optimal action을 아는 것이므로 optimal policy를 안다고 할 수 있다.
 
                 1    if a = {a ∈ A} argmax (q_*(s,a))
     𝜋_*(a|s) =
