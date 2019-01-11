@@ -1,7 +1,7 @@
 ### Lecture 2 : Markov Decision Process
 
 ##### 1. 특징
-- fullly observable한 환경(Env)에서 RL을 formularize.
+- fullly observable한 환경(Env)에서 RL을 formalize.
 
 ##### 2. Review
 - Markov Property는 과거의 history는 필요없다.
