@@ -44,3 +44,7 @@
 - 이 방정식을 통해 얻은 q로 optimal policy를 찾는데,
 - 확률을 몰빵해주는 형태로 policy update가 된다.
 - 여기서 알아야하는 것은 optimal이라고 해서 꼭 하나만 존재해야한다는 건 아니라는 것!!
+
+##### Question
+- transition은 policy에 독립인가? 종속인가?
+- 
