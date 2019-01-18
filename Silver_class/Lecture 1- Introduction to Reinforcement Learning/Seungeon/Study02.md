@@ -62,6 +62,7 @@ Marcov Decision Process
   - It is sometimes possible to use undiscounted Markov reward processes (i.e. 𝛾 = 1), e.g. if all sequences terminate.
 
 8. State-value function
+
   The value function v(s) gives the long-term value of state s
 
     > Definition
@@ -69,9 +70,13 @@ Marcov Decision Process
         v(s) = E[G_t | S_t = s]
 
 9. Bellman Equation for MRPs
+
   The value function can be decomposed into two parts :
+
     immediate reward R_(t+1)
+
     discounted value of successor state 𝛾 * v(S_(t+1))
+    
       v(s) = E[G_t | S_t = s]
            = E[R_(t+1) + 𝛾 * R_(t+2) + 𝛾^2 * R_(t+2) + ... | S_t = s]
            ...
