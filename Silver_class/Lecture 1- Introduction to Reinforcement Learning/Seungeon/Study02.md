@@ -21,6 +21,7 @@ Marcov Decision Process
   - State transition matrix P defines transition probabilities from all states s to all successor states s'
 
 4. A Markov Process
+
   A Markov process is a memoryless random process, i.e. a sequence of random states S1, S2, ... with the Markov property.
 
     > Definition
