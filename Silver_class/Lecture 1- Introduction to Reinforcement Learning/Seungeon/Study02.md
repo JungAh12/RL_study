@@ -143,12 +143,16 @@ Marcov Decision Process
 
 13. Value function
 
-    > State-value function v(s) Definition
+    > State-value function v(s)
+
       The state-value function v_𝜋(s) of an MDP is the expected return starting from state s, and then following polic 𝜋
+
         v_𝜋(s) = E_𝜋[G_t | S_t = s]
 
-    > Action-value function q(s,a) Definition
+    > Action-value function q(s,a)
+    
       The action-value function q_𝜋(s,a) is the expected return starting from state s, taking action a, and then following policy 𝜋
+
         q_𝜋(s,a) = E_𝜋[G_t | S_t = s, A_t = a]
 
 14. Bellman Expectaion Equation
