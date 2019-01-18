@@ -92,16 +92,20 @@ Marcov Decision Process
     Vector식으로 표현을 하게 되면
 
       v = R + 𝛾Pv, where v is a column vector with one entry per state
-      
+
       [v(1), ... , v(n)]' = [R(1), ... , R(n)]' + 𝛾 * [P_11 ... P_1n ; P_21, ... P_2n ; ... P_nn] * [v(1), ... , v(n)]'
 
 10. Solving the Bellman Equation in MRPs
 
    - The bellman equation is a linear euqation
    - It can be solved directly
+
               v = R + 𝛾Pv
+
       (I - 𝛾P)v = R
+
               v = (I - 𝛾P)^-1 * R
+              
    - Computational complexity is O(n^3) for n states
    - Direct solution only possible for small MPRs
    - There are many iterative methods for large MRPs, e.g.
