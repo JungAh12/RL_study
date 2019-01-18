@@ -150,12 +150,13 @@ Marcov Decision Process
         v_𝜋(s) = E_𝜋[G_t | S_t = s]
 
     > Action-value function q(s,a)
-    
+
       The action-value function q_𝜋(s,a) is the expected return starting from state s, taking action a, and then following policy 𝜋
 
         q_𝜋(s,a) = E_𝜋[G_t | S_t = s, A_t = a]
 
 14. Bellman Expectaion Equation
+
   The state-value function can again be decomposed into immediate reward plus discounted value of successor state,
 
     v_𝜋(s) = E_𝜋[R_(t+1) + 𝛾 * v_𝜋(S_(t+1)) | S_t = s]
@@ -165,10 +166,12 @@ Marcov Decision Process
     q_𝜋(s,a) = E_𝜋[R_(t+1) + 𝛾 * q_𝜋(S_(t+1), A_(t+1)) | S_t = s, A_t = a]
 
 15. Bellman Expectation Equation (Matrix Form)
+
   The Bellman expectation equation can be expressed concisely using the induced MRP,
 
             v_𝜋 = R^𝜋 + 𝛾 * P^𝜋 * v_𝜋
     with direct solution
+
             v_𝜋 = (I - 𝛾 * P^𝜋)^-1 * R^𝜋
 
 16. Optimal Value function
