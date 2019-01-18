@@ -209,9 +209,9 @@ Marcov Decision Process
   An optimal policy can be found by maximising over q*(s,a)
   q*를 알면, 특정 상태에서 optimal action을 아는 것이므로 optimal policy를 안다고 할 수 있다.
 
-                1    if a = {a ∈ A} argmax (q*(s,a))
-    𝜋*(a|s) =
-                0    otherwise
+                  1    if a = {a ∈ A} argmax (q*(s,a))
+      𝜋*(a|s) =   0    otherwise
+
 
   - There is always a deterministic optimal policy for any MDP
   - if we know q*(s,a), we immediately have the optimal policy
