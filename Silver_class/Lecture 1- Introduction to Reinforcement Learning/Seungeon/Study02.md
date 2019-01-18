@@ -105,13 +105,12 @@ Marcov Decision Process
       (I - 𝛾P)v = R
 
               v = (I - 𝛾P)^-1 * R
-              
+
    - Computational complexity is O(n^3) for n states
-   - Direct solution only possible for small MPRs
+   - Direct solution only possible for small MRPs
    - There are many iterative methods for large MRPs, e.g.
-     Dynamic programming
-     Monte-Carlo evaluation
-     Temporal-Difference learning
+
+      Dynamic programming // Monte-Carlo evaluation // Temporal-Difference learning
 
 11. Markov Decision Process
   A Markov decision process (MDP) is a Markov reward process with decisions.
