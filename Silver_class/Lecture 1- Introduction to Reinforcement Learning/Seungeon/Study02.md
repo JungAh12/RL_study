@@ -179,11 +179,12 @@ Marcov Decision Process
   - The optimal value function specifies the best possible performance in the MDP
   - An MDP is "solved" when we know the optimal value function
 
-    > Definition
-      The optimal state-value function v_*(s) is the maximum value function over all policies
+    > The optimal state-value function v_*(s) is the maximum value function over all policies
+
         v_*(s) = {𝜋} max (v_𝜋(s))
 
-      The optimal action-value function q_*(s,a) is the maximum action-value function over all policies
+    > The optimal action-value function q_*(s,a) is the maximum action-value function over all policies
+
         q_*(s,a) = {𝜋} max (q_𝜋(s,a))
 
 17. Optimal policy
