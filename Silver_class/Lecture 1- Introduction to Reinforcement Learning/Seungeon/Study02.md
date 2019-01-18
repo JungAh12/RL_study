@@ -132,8 +132,7 @@ Marcov Decision Process
 
       - A policy fully defines the behaviour of an agent
       - MDP policies depend on the current state (not the history)
-      - i.e. Policies are stationary (time-independent),
-        A_t ~ 𝜋(∙|S_t), ∀t > 0
+      - i.e. Policies are stationary (time-independent), A_t ~ 𝜋(∙|S_t), ∀t > 0
 
   - Given an MDP M = <S, A, P, R, 𝛾> and a policy 𝜋
   - The state sequence S_1, S_2, ... is a Markov process <S, P^𝜋>
