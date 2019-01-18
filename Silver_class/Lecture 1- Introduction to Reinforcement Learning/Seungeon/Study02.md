@@ -76,17 +76,23 @@ Marcov Decision Process
     immediate reward R_(t+1)
 
     discounted value of successor state 𝛾 * v(S_(t+1))
-    
+
       v(s) = E[G_t | S_t = s]
+
            = E[R_(t+1) + 𝛾 * R_(t+2) + 𝛾^2 * R_(t+2) + ... | S_t = s]
+
            ...
+
            = E[R_(t+1) + 𝛾 * G_(t+1) | S_t = s]
+
            = E[R_(t+1) + 𝛾 * v(S_(t+1)) | S_t = s]
 
       v(s) = R_s + 𝛾 * {s' ∈ S} Σ 𝑃_𝑠𝑠′ ∗ 𝑣(𝑠′)
 
     Vector식으로 표현을 하게 되면
+
       v = R + 𝛾Pv, where v is a column vector with one entry per state
+      
       [v(1), ... , v(n)]' = [R(1), ... , R(n)]' + 𝛾 * [P_11 ... P_1n ; P_21, ... P_2n ; ... P_nn] * [v(1), ... , v(n)]'
 
 10. Solving the Bellman Equation in MRPs
