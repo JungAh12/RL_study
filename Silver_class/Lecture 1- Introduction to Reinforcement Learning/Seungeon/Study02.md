@@ -242,6 +242,7 @@ Marcov Decision Process
   - Undiscounted, average reward MDPs
 
 22. Infinite MDPs
+
   The following extensions are all possible:
     - Countably infinite state and/or action spaces
       - Straightforward
@@ -255,11 +256,11 @@ Marcov Decision Process
       - Limiting case of Bellman equation as time-step -> 0
 
 23. POMDPs
+
   A partially Observable Markov Decision Process is an MDP with hidden states.
   It is a hidden Markov model with actions.
 
-    > Definition
-      A POMDP is a tuple <S, A, O, P, R, Z, 𝛾>
+    > A POMDP is a tuple <S, A, O, P, R, Z, 𝛾>
         - S is a finite set of states
         - A is a finite set of actions
         - O is a finite set of observations
