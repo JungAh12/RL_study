@@ -179,13 +179,13 @@ Marcov Decision Process
   - The optimal value function specifies the best possible performance in the MDP
   - An MDP is "solved" when we know the optimal value function
 
-    > The optimal state-value function v_*(s) is the maximum value function over all policies
+    > The optimal state-value function v*(s) is the maximum value function over all policies
 
-        v_*(s) = {𝜋} max (v_𝜋(s))
+        v*(s) = {𝜋} max (v_𝜋(s))
 
     > The optimal action-value function q_*(s,a) is the maximum action-value function over all policies
 
-        q_*(s,a) = {𝜋} max (q_𝜋(s,a))
+        q*(s,a) = {𝜋} max (q_𝜋(s,a))
 
 17. Optimal policy
 
@@ -196,25 +196,25 @@ Marcov Decision Process
     > Theorem
       For any Markov Decision Process
 
-      - There exists an optimal policy 𝜋_* that is better than or equal to all other policies,
-        𝜋_* >= ∀𝜋
+      - There exists an optimal policy 𝜋* that is better than or equal to all other policies,
+        𝜋* >= ∀𝜋
 
       - All optimal policies achieve the optimal value function
-        v_𝜋**(s) = v_**(s)
+        v_𝜋**(s) = v**(s)
 
       - All optimal policies achieve the optimal action-value function,
-        q_𝜋**(s,a) = q_**(s,a)
+        q_𝜋**(s,a) = q**(s,a)
 
 18. Finding an Optimal Policy
-  An optimal policy can be found by maximising over q_*(s,a)
-  q_*를 알면, 특정 상태에서 optimal action을 아는 것이므로 optimal policy를 안다고 할 수 있다.
+  An optimal policy can be found by maximising over q*(s,a)
+  q*를 알면, 특정 상태에서 optimal action을 아는 것이므로 optimal policy를 안다고 할 수 있다.
 
-                1    if a = {a ∈ A} argmax (q_*(s,a))
-    𝜋_*(a|s) =
+                1    if a = {a ∈ A} argmax (q*(s,a))
+    𝜋*(a|s) =
                 0    otherwise
 
   - There is always a deterministic optimal policy for any MDP
-  - if we know q_*(s,a), we immediately have the optimal policy
+  - if we know q*(s,a), we immediately have the optimal policy
 
 19. Bellman Optimality Equation
   The optimal value function are recursively related by the Bellman optimality equations :
