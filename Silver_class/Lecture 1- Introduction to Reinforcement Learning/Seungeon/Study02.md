@@ -212,12 +212,13 @@ Marcov Decision Process
                   1    if a = {a ∈ A} argmax (q*(s,a))
       𝜋*(a|s) =   0    otherwise
 
-
   - There is always a deterministic optimal policy for any MDP
   - if we know q*(s,a), we immediately have the optimal policy
 
 19. Bellman Optimality Equation
+
   The optimal value function are recursively related by the Bellman optimality equations :
+
     v_**(s)   = {a} max(q_**(s,a))
 
     q_**(s,a) = R^a_s + 𝛾 * {s' ∈ S} Σ P^a_ss' v_**(s')
