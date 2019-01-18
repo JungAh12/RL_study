@@ -266,19 +266,19 @@ Marcov Decision Process
         - O is a finite set of observations
         - P is a state transition probability matrix
           - P^a_(ss') = P[S_(t+1) = s' | S_t = s, A_t = a]
+
         - R is a reward function, R^a_s = E[R_(t+1) | S_t = s, A_t = a]
         - Z is an observation function,
           - Z^a_(s', o) = P[O_(t+1) = o | S_t = s', A_t = a]
+
         - 𝛾 is a discount factor 𝛾 ∈ [0, 1]
 
 24. Belief States
 
-    > Definition
-      A history H_t is a sequence of actions, observations and rewards,
+    > A history H_t is a sequence of actions, observations and rewards,
         H_t = A_0, O_1, R_1, ... , A_(t-1), O_t, R_t
 
-    > Defienition
-      A belief state b(h) is a probability distribution over states, conditioned on the history h
+    > A belief state b(h) is a probability distribution over states, conditioned on the history h
         b(h) = (P[S_t = s^1 | H_t = h], ..., P[S_t = s^n | H_t = h])
 
 25. Reductions of POMDPs
@@ -289,6 +289,7 @@ Marcov Decision Process
   - A POMDP can be reduced to an (infinite) belief state tree
 
 26. Ergodic Markov Process
+
   An ergodic Markov process is
   - Recurrent: each state is visited an infinite number of times
   - Aperiodic: each state is visited without any systematic period
@@ -298,10 +299,12 @@ Marcov Decision Process
         d^𝜋(s) = {s' ∈ S} Σ d^𝜋(s') * P_(s's)
 
 27. Ergodic MDP
+
   For any policy 𝜋, an ergodic MDP has an average reward per time-step 𝜌^𝜋 that is independent of start state
     𝜌^𝜋 = {T -> ∞} lim (1/T) * E[{t=1 to T} Σ R_t]
 
 28. Average Reward Value function
+
   The value function of an undiscounted, ergodic MDP can be wxpressed in terms of average reward.
   vtild_𝜋(s) is the extra reward due to starting from state s,
     vtild_𝜋(s) = E_𝜋[ {k=1 -> ∞} Σ (R_(t+k) - 𝜌^𝜋) | S_t = s]
