@@ -15,7 +15,7 @@ Marcov Decision Process
 
 3. State Transition Matrix
 
-  - For a Markov state s and successor satte s', the state transition probability is defined by
+  - For a Markov state s and successor state s', the state transition probability is defined by
       P_ss' = P [S_(t+1) = s' | S_t = s]
 
   - State transition matrix P defines transition probabilities from all states s to all successor states s'
