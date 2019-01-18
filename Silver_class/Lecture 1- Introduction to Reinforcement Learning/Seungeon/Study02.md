@@ -24,8 +24,7 @@ Marcov Decision Process
 
   A Markov process is a memoryless random process, i.e. a sequence of random states S1, S2, ... with the Markov property.
 
-    > Definition
-    - A Markov Process (or Markov Chain) is a tuple <S, P>
+    > A Markov Process (or Markov Chain) is a tuple <S, P>
     - S is a (finite) set of states
     - P is a state transition probability matrix,
       P_ss' = P[S_(t+1) = s' | S_t = s]
@@ -33,8 +32,7 @@ Marcov Decision Process
 5. Markov Reward Process
   A Markov reward process is a Markov chain with values.
 
-    > Definition
-      A Markov Reward Process is a tuple <S, P, R, 𝛾>
+    > A Markov Reward Process is a tuple <S, P, R, 𝛾>
       - S is a finite set of states
       - P is a state transition probability matrix,
           P_ss' = P[S_(t+1) = s' | S_t = s]
