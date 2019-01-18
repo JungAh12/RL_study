@@ -113,11 +113,11 @@ Marcov Decision Process
       Dynamic programming // Monte-Carlo evaluation // Temporal-Difference learning
 
 11. Markov Decision Process
+
   A Markov decision process (MDP) is a Markov reward process with decisions.
   It is an environment in which all states are Markov.
 
-    > Definition
-      A Markov Decision Process is a tuple <S, A, P, R, 𝛾>
+    > A Markov Decision Process is a tuple <S, A, P, R, 𝛾>
       - S is a finite set of states
       - A is a finite set of actions
       - P is a state transition probability matrix,
@@ -127,8 +127,7 @@ Marcov Decision Process
 
 12. Policies
 
-    > Definition
-      A policy 𝜋 is a distribution over actions given states,
+    > A policy 𝜋 is a distribution over actions given states,
         𝜋(a|s) = P[A_t = a | S_t = s]
 
       - A policy fully defines the behaviour of an agent
