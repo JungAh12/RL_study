@@ -200,10 +200,10 @@ Marcov Decision Process
         𝜋* >= ∀𝜋
 
       - All optimal policies achieve the optimal value function
-        v_𝜋**(s) = v**(s)
+        v_𝜋∗(s) = v∗(s)
 
       - All optimal policies achieve the optimal action-value function,
-        q_𝜋**(s,a) = q**(s,a)
+        q_𝜋∗(s,a) = q∗(s,a)
 
 18. Finding an Optimal Policy
   An optimal policy can be found by maximising over q*(s,a)
@@ -219,13 +219,13 @@ Marcov Decision Process
 
   The optimal value function are recursively related by the Bellman optimality equations :
 
-    v_**(s)   = {a} max(q_**(s,a))
+    v∗(s)   = {a} max(q∗(s,a))
 
-    q_**(s,a) = R^a_s + 𝛾 * {s' ∈ S} Σ P^a_ss' v_**(s')
+    q∗(s,a) = R^a_s + 𝛾 * {s' ∈ S} Σ P^a_ss' v∗(s')
 
-    v_**(s)   = {a} max (R^a_s) + 𝛾 * {s' ∈ S} Σ P^a_ss' v_**(s')
+    v∗(s)   = {a} max (R^a_s) + 𝛾 * {s' ∈ S} Σ P^a_ss' v∗(s')
 
-    q_**(s,a) = R^a_s + 𝛾 * {s' ∈ S} Σ P^a_ss' q_**(s', a')
+    q∗(s,a) = R^a_s + 𝛾 * {s' ∈ S} Σ P^a_ss' q∗(s', a')
 
 20. Solving the Bellman Optimality Equation
   - Bellman Optimality Equation is non-linear
