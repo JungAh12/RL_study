@@ -59,11 +59,13 @@ Planning by Dynamic Programming
 
   ==> 모든 state에 대해서, value를 update 해 가는 것
 
+  Bellman expectation equation을 통해서 evaluation해가는 과정
 
+  v^(k+1) = R^𝜋 + 𝛾 * P^𝜋 * v^k
 
+  이렇게 업데이트를 해주면 R은 정확하기 때문에 반복하다보면 실제값에 수렴하게된다.
 
-
-
+  
 
 
 
