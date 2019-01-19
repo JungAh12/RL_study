@@ -93,7 +93,14 @@ Planning by Dynamic Programming
   - In general, need more iterations of improvement / evaluation
   - But this process of policy iteration always converges to 𝜋*
 
+  - This improves the value from any state s over one step,
 
+    q_𝜋(s, 𝜋'(s)) = {a} max q_𝜋(s,a) >= q_𝜋(s, 𝜋(s)) = v_𝜋(s)
+
+    => q_𝜋(s, 𝜋'(s)) >= v_𝜋(s)
+
+    q_𝜋(s, 𝜋'(s)) = E_𝜋'[R_(t+1) + 𝛾 * v_𝜋(S_(t+1)) | S_t = s]
+                 <= E_𝜋'[R_(t+1) + 𝛾 * q_𝜋(S_(t+1), 𝜋'(S_(t+1))')| S_t = s]
 
 
 
