@@ -2,7 +2,7 @@
 
 Planning by Dynamic Programming
 
-1. What is Dynamic programming
+### 1. What is Dynamic programming
 
   복잡한 문제를 subproblem으로 잘게 쪼개서 푸는 것
 
@@ -37,14 +37,14 @@ Planning by Dynamic Programming
       Output : optimal value function v_*
          and : optimal policy 𝜋_*
 
-2. Dynamic programming은 여러 분야에서 쓰인다고 한다.
+### 2. Dynamic programming은 여러 분야에서 쓰인다고 한다.
 
   - String algorithms (sequence alignment)
   - Graph algorithm (shortest path algorithms)
   - Graphical models (Viterbi algorithm)
   - Bioinformatics (lattice models)
 
-3. Policy Evaluation
+### 3. Policy Evaluation
 
   Problem  : policy 𝜋를 evaluation하는 것
   Solution : iterative application of Bellman expectation backup
@@ -65,10 +65,33 @@ Planning by Dynamic Programming
 
   이렇게 업데이트를 해주면 R은 정확하기 때문에 반복하다보면 실제값에 수렴하게된다.
 
-  
+  ****예시****
+    Pridiction 문제인거 알 수 있겠죠? 각 state의 value를 구하는 거니까
 
+    action이 (1/4)로 상하좌우이고 r = -1 on all transitions 한번 움직일때마다 보상이 -1
 
+  - Undiscounted episodic MDP
+  - Nonterminal states 1, ... , 14
+  - One terminal state (shown twice as shaded squares)
+  - Actions leading out of the grid leave state unchanged
+  - Reward is -1 until the terminal state is reached
+  - Agent follows uniform random policy
 
+### 4. How to Improve a Policy
+
+  - Given a policy 𝜋
+
+    - Evaluate the policy 𝜋
+
+      v_𝜋(s) = E[R_(t+1) + 𝛾 * R_(t+2) + ... | S_t = s]
+
+    - Improve the policy by acting greedily with respect to v_𝜋
+
+      𝜋' = greedy(v_𝜋)
+
+  - In small gridworld improved policy was optimal, 𝜋' = 𝜋*
+  - In general, need more iterations of improvement / evaluation
+  - But this process of policy iteration always converges to 𝜋*
 
 
 
