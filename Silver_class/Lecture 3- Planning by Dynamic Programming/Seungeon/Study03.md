@@ -96,11 +96,39 @@ Planning by Dynamic Programming
   - This improves the value from any state s over one step,
 
     q_𝜋(s, 𝜋'(s)) = {a} max q_𝜋(s,a) >= q_𝜋(s, 𝜋(s)) = v_𝜋(s)
-
     => q_𝜋(s, 𝜋'(s)) >= v_𝜋(s)
 
+  - It therefore improves the value function, v_𝜋'(s) >= v_𝜋(s)
+
     q_𝜋(s, 𝜋'(s)) = E_𝜋'[R_(t+1) + 𝛾 * v_𝜋(S_(t+1)) | S_t = s]
-                 <= E_𝜋'[R_(t+1) + 𝛾 * q_𝜋(S_(t+1), 𝜋'(S_(t+1))')| S_t = s]
+                 <= E_𝜋'[R_(t+1) + 𝛾 * q_𝜋(S_(t+1), 𝜋'(S_(t+1)) | S_t = s]
+                 <= E_𝜋'[R_(t+1) + 𝛾 * R_(t+2) + ... | S_t = s] = v_𝜋'(s)
+
+  - If improvements stop,
+
+    q_𝜋(s,𝜋'(s)) = {a} max q_𝜋(s,a) = q_𝜋(s, 𝜋(s)) = v_𝜋(s)
+
+  - Then the Bellman optimality equation has been satisfied
+
+    v_𝜋(s) = {a} max q_𝜋(s,a)
+
+  - Therefore v_𝜋(s) = v_*(s) for all s
+  - so 𝜋 is an optimal policy
+
+### 5. Principle of Optimality
+
+  모든 optimal policy는 두개의 component들로 나뉜다.
+  - An optimal first action A*
+  - Followed by an optimal policy from successor state S'
+
+   > Teorem (Principle of Optimality)
+
+   A policy 𝜋(a|s) achieves the optimal value from state s, v_𝜋(s) = v_*(s), if and only if
+
+    - For any state s' reachable from s
+    - 𝜋 achieves the optimal value from state s', v_𝜋(s') = v_*(s')
+
+    만약 s로부터 도달할 수 있는 모든 s'에 대해 𝜋가 v_𝜋(s') = v_*(s')를 만족하게 된다면 policy 𝜋(a|s)는 state s에 대해 v_𝜋(s) = v_∗(s)를 이룰 수 있다.
 
 
 
