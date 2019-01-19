@@ -130,6 +130,31 @@ Planning by Dynamic Programming
 
     만약 s로부터 도달할 수 있는 모든 s'에 대해 𝜋가 v_𝜋(s') = v_*(s')를 만족하게 된다면 policy 𝜋(a|s)는 state s에 대해 v_𝜋(s) = v_∗(s)를 이룰 수 있다.
 
+### 6. Deterministic Value Iteration
+
+  - 우리가 subproblem인 v*(s')을 알게 된다면
+
+  - solution v*(s)는 다음과 one-step look ahead를 통해 알 수 있다.
+    v*(s) <== {a} max R^a_s + 𝛾 * {s} Σ P^a_(ss') * v∗(s')
+
+  - The idea of value iteration is to apply these updates iteratively
+  - Intuition : start with final rewards and work backwards
+  - Still works with loopy, stochastic MDPs
+
+### 7. Value Iteration
+
+  - Problem  : find optimal policy 𝜋
+  - Solution : iterative application of Bellman optimality backup
+  - v1 -> v2 -> ... -> v*
+  - Using synchronous backups
+      - At each iteration k+1
+      - For all states s
+      - Update v_(k+1)(s) from v_k(s')
+
+  - Convergence to v_* will be proven later
+  - Unlike policy iteration, there is no explicit policy
+  - Intermediate value functions may not correspond to any policy
+
 
 
 
