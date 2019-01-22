@@ -48,4 +48,76 @@ Introduction to Reinforcement Learning
 
 
 7. Markov State
-  -
+  - State가 Markov하다는 것은, 어떤 상태가 현재 상태에만 영향을 받아 다음 상태로 간다는 것
+
+
+8. Fully Observable Environments
+  - agent directly observes environment state
+    > O(t) = S(t,a)
+  - 자동차로 치면, 라이다가 한 바퀴 돎에따라, partially observable하게 환경을 알 수 있다.
+  - POMDP (Partially Observable MDP)
+    > Complete history : S(t,a) = H(t)
+    > Beliefs of environment state : S(t,a) = (P[S(t,e)=s1], ... , P[S(t,e)=sn])
+
+
+9. Major Components of RL
+  - Policy
+    > agent의 action을 정해주는 친구, state와 action을 mapping 해준다.
+    > Deterministic policy: a = 𝜋(s), Stochastic policy: 𝜋(a|s) = P[A_t = a | S_t = s]가 있다.
+
+  - Value function
+    > state, action이 얼마나 좋은지를 보여주는 함수
+
+  - Model
+    > A model predics what the environment will do next~!
+    > P predicts the next state => P(ss',a) = P[S(t+1) = s' | S(t) = s, A(t) = a]
+    > R predicts the next (immediate) reward => P(ss',a) = E[R(t+1) | S(t) = s, A(t) = a]
+    > model의 사용 유무로 RL을 model - based RL // model - free RL 로 나눈다.
+
+
+10. Categorizing RL agent (1)
+  - Value based agent
+    > Value function만 있어도 agent의 역할을 할 수 있음 <= ?? 말이 이상한듯
+
+  - Policy based agent
+    > Policy 만 있어도 agent의 역할을 할 수 있음 <= ?? 말이 이상한듯
+
+  - Actor - Critic
+    > Policy와 Value function을 학습하는 agent
+
+
+10. Categorizing RL agent (2)
+  - Model-Free
+    > Environment의 model을 알지 못 하더라도, Policy와 Value만 가지고 학습을 하는 것??
+
+  - Model-Based
+    > Environment의 model을 예측하여 만들어서, 그것에 근거해서 학습을 하는 것??
+
+
+11. RL로 풀 수 있는 대표적인 두 가지 문제: Learning and Planning
+  - Lenarning 문제는 환경에 대해 모르지만, 환경과 상호작용 하면서 Policy를 개선해나가는 문제
+
+  - Planning 문제는 환경의 모델을 아는 경우에(R과 P가 주어진 경우) 실제로 environment를 아니까, action을 취하지 않고도, 내부적으로 computation을 통해 모든 상황을 알 수 있다.
+    > 내부적인 계산을 통해 Policy를 개선해나가는 문제
+    > agent의 뇌에 perfect model이 있다고 표현했음.
+
+
+12. Exploration and Exploitation
+  - Reinforcement learning은 Trial and Error를 통해 학습하는 학습 방법이다.
+  - Environment의 경험으로부터 좋은 Policy를 discover하는 것이 목적
+
+  - Exploration
+    > Environment를 탐험해서 정보를 모으는 과정
+
+  - Exploitation
+    > 지금까지의 정보를 가지고 최선의 선택을 내리는 과정
+
+  - Exploration, exploitation 둘 다 중요하지만, 이 둘이 Trade - off 관계에 있다는 것을 기억해라.
+
+13. Prediction and Control
+  - Prediction : 미래를 평가하는 term
+    > Given a policy
+    > Value function을 학습시키는 문제
+
+  - Control : 미래를 최적화 하는 term
+    > Find the best policy
