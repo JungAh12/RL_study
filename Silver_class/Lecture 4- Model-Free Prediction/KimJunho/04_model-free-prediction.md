@@ -65,7 +65,14 @@
 - 반면, TD는 MC에 비해 많은 randomness를 고려하지 않기때문에 상대적으로 variance가 낮다.
 - 그러나...estimation으로 estimate하기 때문에 정확한 V_pi에 완전히 수렴하지 않게 된다.(biased estimate of V_pi)
 - 그럼 정확하지 않은 값으로 estimate하는게...가능한건가? silver는 운좋게도 그렇다고 한다...증명은 따로 안함
+- 관련 내용은 <Reinforcement Learning : An Introduction, sutton교수책> p101 6.2절
+- policy pi를 고정했을때, TD(0)가 V_pi에 수렴한다고 한다.(step size와 관련되어있는데 자세히는..잘 모르겠다...)
 - MC에 비해 효율적인 계산이 가능하지만, 초기값에 따라 좌지우지될 수 있기에 초기값을 잘 설정하는게 중요하다.
+
+**참고**
+- 위의 convergence 증명은 tabular case에 대부분 적용되고, 일부는 linear function approximation에 적용.
+- 이건 향후 function approximation에서 다시 등장.
+
 
 ##### h. markov property 활용유무 관점 (이 부분은 확실히 와닿지는 않는다.)
 - TD는 Markov property를 이용하기 때문에 markov environment에 적합.
