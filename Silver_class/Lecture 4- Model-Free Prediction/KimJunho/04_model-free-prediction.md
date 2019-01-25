@@ -1,8 +1,17 @@
 ## 4. Model-Free Prediction
 
+| Keyword |
+| ------------- |
+| model-free    |
+| Monte-Carlo   |
+| Temporal-Difference |
+| bias-variance trade off  |
+| N-step TD, TD lambda |
+| Eligibility Trace |
+
 ##### a. model-free prediction?
 - model을 모른다. 즉 transition probability, reward function을 모른다.
-- prediction = estimated value를 학습/찾는다. (policy 고정)
+- prediction = evaluation = estimated value를 학습/찾는다. (policy 고정)
 
 ### Monte-Carlo Learning (MC)
 
