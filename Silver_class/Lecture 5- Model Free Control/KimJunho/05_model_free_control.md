@@ -61,6 +61,7 @@
 - 다시말해, Q(s',a')가 안좋게 나오면 Q(s,a)도 안좋아진다.
 - 이런식으로 진행되다보면 agent가 일정 구역에 갇히는 현상이 발생한다.
 - **Q-learning은 S'에서 실제로 뭔 행동을 하던지 상관없이 Q(s,a)의 업데이트는 maxQ(s',a')로 하자는 것이다.**
+- **행동은 epsilon greedy로, Q 업데이트는 bellman optimality equation으로**
 
 ### Question?!
 - 왜 importance sampling은 variance를 키우는가? 어떻게 randomness를 키우게 되는가?
