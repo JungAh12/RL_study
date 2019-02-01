@@ -89,7 +89,15 @@ Model-Free Control
     Policy evaluation Sarsa, Q ~~ q_pi
     Policy improvement, epsilon-greedy policy improvement
 
+  Theorem
+    Sarsa converges to the optimal action-value function,
+    Q(s,a) -> q_*(s,a), under the following conditions:
+      GLIE sequence of policies pi_t(a|s)
+      Robbins-Monro sequence of step-size alpha_t
+        첫 번째 식 의미 : state를 끝까지 데려간다
+        두 번째 식 의미 : Q값의 update가 점점 작아져서 수렴한다
 
+  d
 
 
 
