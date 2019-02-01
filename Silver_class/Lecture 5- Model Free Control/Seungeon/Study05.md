@@ -97,9 +97,33 @@ Model-Free Control
         첫 번째 식 의미 : state를 끝까지 데려간다
         두 번째 식 의미 : Q값의 update가 점점 작아져서 수렴한다
 
-  d
+#### n-Step Sarsa
 
+  Consider the following n-step returns for n = 1, 2, 무한 :
+    n = 1   (Sarsa) q_t(1) = R_(t+1) + gamma * Q(S_(t+1))
+    n = 2           q_t(2) = R_(t+1) + gamma * R_(t+2) + gamma^2 * Q(S_(t+1))
+      .
+      .
+      .
+    n = 무한  (MC)  q_t(무한) = R_(t+1) + gam * R_(t+2) + ... + gam^(T-1) * R_T
 
+  Define the n-step Q-return
+    q_t(n) = R_(t+1) + ... + gamma^(n-1) * R_(t+n) + gamma^n * Q(S_(t+n))
+
+  n-step Sarsa updates Q(s,a) towards the n-step Q-return
+    Q(S_t, A_t) <- Q(S_t, A_t) + alpha * (q_t(n) - Q(S_t, A_t))
+
+#### Off-Policy Learning
+
+  Evaluate target policy pi(a|s) to compute v_pi(s) or q_pi(s,a)
+  While following behaviour policy mu(a|s)
+    {S_1, A_1, R_2, ..., S_T} ~ mu
+
+  Why is this important
+    Learn from observing humans or other agents
+    Re-use experience generated from old policies pi_1, pi_2, ..., pi_(t-1)
+    Learn about optimal policy while following exploratory policy
+    Learn about multiple policies while following one policy
 
 
 
