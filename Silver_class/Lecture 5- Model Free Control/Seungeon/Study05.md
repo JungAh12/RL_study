@@ -125,6 +125,11 @@ Model-Free Control
     Learn about optimal policy while following exploratory policy
     Learn about multiple policies while following one policy
 
+    번역
+      사람이나 다른 agent의 행도에서 배울 수 있다.
+      오래된 정책들을 따랐을 때의 경험을 재 사용할 수 있다.
+      탐험 정책을 따라가면서 최적 정책을 배울 수 있다.
+      하나의 정책을 따르면서 여러 정책들에 대해 배울 수 있다.
 
 
 
