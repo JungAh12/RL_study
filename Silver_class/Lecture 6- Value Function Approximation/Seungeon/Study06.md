@@ -1,5 +1,5 @@
 # RL-study-2019
 
-Model-Free Control
+Value function approximation
 
 ### 1. d
