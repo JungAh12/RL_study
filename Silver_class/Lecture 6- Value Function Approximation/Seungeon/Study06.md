@@ -28,7 +28,21 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
     Generalise from seen states to unseen states
     Update parameter w using MC or TD learning
 
+  번역
+    근사 함수를 통해서, 실제 value와 실제 q를 나타내는 것
+    그러기 위해서 근사 함수의 parameter인 w를 학습 시켜야하고 그때 MC or TD learning을 이용하는 것.
+    이렇게 학습을 시키면, 보지 못 한 state도 본 state들로 일반화 할 수 있다.
 
+  Which Function Approximation?
+    There are many function approximations, e.g.
+      Linear combinations of features
+      Neural network
+      Decision tree
+      Nearest neighbour
+      Fourier / wavelet bases
+      ...
+
+  d
 
 
 
