@@ -126,10 +126,86 @@ Model-Free Control
     Learn about multiple policies while following one policy
 
     번역
-      사람이나 다른 agent의 행도에서 배울 수 있다.
+      사람이나 다른 agent의 행동에서 배울 수 있다.
       오래된 정책들을 따랐을 때의 경험을 재 사용할 수 있다.
       탐험 정책을 따라가면서 최적 정책을 배울 수 있다.
       하나의 정책을 따르면서 여러 정책들에 대해 배울 수 있다.
+
+#### Importance sampling
+
+  E_(X~P) [f(X)] = Sigma{ P(X) * f(X) }
+                 = Sigma{ Q(X) * (P(X)/Q(X)) * f(X)}
+                 = E_(X~Q) [ (P(X)/Q(X)) * f(X)]
+
+  Importance Sampling for Off-Policy Monte-Carlo
+    Use returns generated from mu to evaluate pi
+    Weight return G_t according to similarity between policies
+    Multiply importance sampling corrections along whole episode
+      G^(pi/mu)_t = pi(A(t)|S(t)) * pi(A(t+1)|S(t)) * ... pi(A(T)|S(T))
+                    ---------------------------------------------------
+                    mu(A(t)|S(t)) * mu(A(t+1)|S(t)) * ... mu(A(T)|S(T))
+
+    Update value towards corrected return
+      V(S_t) <- V(S_t) + alpha * (G^(pi/mu)_t - V(S_t))
+
+    Connot use if mu is zero when pi is non-zero
+    Importance sampling can dramatically increase variance
+
+    문제점
+    mu가 0에 가까운 숫자일 경우 G가 폭발적으로 커질 수 있다.
+    mu가 0이면 큰일난다.
+    mu가 너무 크면 G가 0에 가깝게 수렴해 버린다. 이런식으로 variance가 너무 크다.
+
+  Imporatnace Sampling for Off-Policy TD
+    Use TD targets generated from mu to evaluate pi
+    Weight TD target R + gam * V(S') by importance sampling
+    Only need a single importance sampling correction
+      V(S_t) <- V(S_t) + alpha * ( {pi(At|St)/mu(At|St)} * (TD target) - V(S_t) )
+
+    Much lower variance than Monte-Carlo importance sampling
+    Policies only need to be similar over a single step
+
+#### Q - Learning
+
+  We now consider off-policy learning of action-values Q(s,a)
+  No importance sampling is required
+  Next action is chosen using behaviour policy A_(t+1) ~ mu(.|S_t)
+  But we condsider alternative successor action A' ~ pi(.|S_t)
+  And updates Q(S_t,A_t) towards value of alternative action
+    Q(S_t, A_t) <- Q(S_t, A_t) + alpha * (R_(t+1) + gam * Q(S_(t+1), A') - Q(S_t, A_t))
+
+  번역
+    행동을 정하는 policy인 mu로써 A의 행동을 취하고,
+    학습을 할 때에는 pi라는 policy에서 A'을 가져오서 그걸로 학습한다.
+    하지만 행동은 mu에서 나온 A'을 취한다.
+
+  Off-Policy Control with Q-Learning
+    We now allow both behaviour and target policies to improve
+    The target policy pi is greedy w.r.t Q(s,a)
+      pi(S_(t+1)) = argmax Q(S_(t+1),a')
+
+    The behaviour policy mu is e.g. e-greedy w.r.t Q(s,a)
+    The Q-learning target then simplifies :
+        R_(t+1) + gam * Q(S_(t+1), A')
+      = R_(t+1) + gam * Q(S_(t+1), argmax Q(S_(t+1), a') )
+      = R_(t+1) + max gam * (Q_S(t+1), a')
+
+  Q-Learning Control Algorithm
+    Q(S,A) <- Q(S,A) + alpha (R + gam * max Q(S', a') - Q(S,A))
+
+  Theorem
+    Q-Learning control converges to the optimal action-value function,
+    Q(s,a) -> q_*(s,a)
+
+  번역 : Q-learning이란 학습은 greedy 하게 진행하고, 탐험은 e-greedy하게 진행한다.
+  매우 좋지? 그러면 결국 Q-learning control을 통해 action-value function은 optimal action -value function으로 수렴한데
+
+
+
+
+
+
+
 
 
 
