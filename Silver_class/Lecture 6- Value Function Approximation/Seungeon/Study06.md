@@ -2,4 +2,4 @@
 
 Value function approximation
 
-### 1. d
+### 1. Large-Scale Reinforcement Learning
