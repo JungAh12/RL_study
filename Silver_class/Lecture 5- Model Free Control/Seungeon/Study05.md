@@ -200,7 +200,17 @@ Model-Free Control
   번역 : Q-learning이란 학습은 greedy 하게 진행하고, 탐험은 e-greedy하게 진행한다.
   매우 좋지? 그러면 결국 Q-learning control을 통해 action-value function은 optimal action -value function으로 수렴한데
 
+#### Relationship between DP and TD
 
+  Full Backup (DP)
+    Iterative Policy Evaluation     : v_pi(s)에 대한 벨만 expectation 방정식 이용
+    Iterative Q - Policy Evaluation : q_pi(s,a)에 대한 벨만 expectation 방정식 이용
+    Q - Value Iteration             : q_*(s,a)에 대한 벨만 optimality 방정식 이용
+
+  Sample Backup (TD)
+    TD Learning : v_pi(s)에 대한 벨만 expectation 방정식 이용
+    Sarsa       : q_pi(s,a)에 대한 벨만 expectation 방정식 이용
+    Q-Learning  : q_*(s,a)에 대한 벨만 optimality 방정식 이용
 
 
 
