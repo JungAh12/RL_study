@@ -59,8 +59,17 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
       Delta w = -(1/2) * alpha * Delta_w J(w)
       where alpha is a step-size parameter
 
-  D
+  Goal : find parameter vector w minimising mean-squared error between approximate value function v_hat(s,w) and true value function v_pi(s)
+    J(w) = E_pi[(v_pi(s) - v_hat(s,w))^2]
 
+  Gradient descent finds a local minimum
+    Delta w = -(1/2) * alpha * Delta_w J(w)
+            = alpha * E_pi[(v_pi(s) - v_hat(s,w)) * Delta_w v_hat(s,w)]
+
+  Stochastic gradient descent samples the gradient
+    Delta w = alpha * (v_pi(s) - v_hat(s,w)) * Delta_w v_hat(s,w)
+
+  Expected update is equal to full gradient update
 
 
 
