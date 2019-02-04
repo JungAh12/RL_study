@@ -42,9 +42,24 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
       Fourier / wavelet bases
       ...
 
-  d
+  이중에 미분을 통해 학습이 가능한, Lineaer combinations of features, Neural network 이 두가지를 보통 사용하곤 한다.
 
+  또한, non-stationary하고 non-iid한 데이터에 적절한 training method를 사용해야 한다.
 
+#### Incremental Methods
+  Incremental (조금씩 바꿔나가는) 방법들에 대해 배울 것이다.
+
+  Gradient descent
+    Let J(w) be a differentiable function of parameter vector w
+    Define the gradient of J(w) to be
+      Delta_w J(w) = (w1에대한 J의 편미분, w2에 대한 J의 편미분, ...)
+
+    To find a local minimum of J(w)
+    Adjust w in direction of -ve gradient
+      Delta w = -(1/2) * alpha * Delta_w J(w)
+      where alpha is a step-size parameter
+
+  D
 
 
 
