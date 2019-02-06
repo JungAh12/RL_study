@@ -5,8 +5,8 @@
 | 핵심 키워드 |
 | ------------- |
 | Gradient Vector |
-| col 2 is      |
-| zebra stripes |
+| Feature Vector |
+| Experience Replay |
 
 ### Function Approximation 필요성
 - 이전까진 value function을 lookup table형태로 업데이트했다.
