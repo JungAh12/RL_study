@@ -180,8 +180,11 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
     Et = 𝛾 * 𝜆 * E(t-1) + x(S_t)
     ∆w = 𝛼 * 𝛿t * Et
 
+  Foward view and backward view linear TD(𝜆) are equivalent
 
+#### Control with Value Function Approximation
 
+여기부터는 그냥 강의 듣거나 글쓰기 보다는 내가 읽고 이해해보자
 
 
 
