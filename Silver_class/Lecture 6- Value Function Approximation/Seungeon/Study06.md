@@ -123,12 +123,13 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
   But in RL there is no supervisor, only rewards
   In practice, we substitute a target for v_pi(s)
     For MC, the target is the return G_t
-      ∆w = alpha * (G_t - v_hat(St,w)) * ∆w v_hat(St,w)
+      ∆w = 𝛼 * (G_t - v_hat(St,w)) * ∇w v_hat(St,w)
 
     For TD(0), the target is the TD target R(t+1) + 𝛾 * v_hat(S(t+1), w)
-      ∆w = alpha * (R(t+1) + + 𝛾 * v_hat(S(t+1), w) - v_hat(St,w)) * ∆w v_hat(St,w)
+      ∆w = 𝛼 * (R(t+1) + + 𝛾 * v_hat(S(t+1), w) - v_hat(St,w)) * ∇w v_hat(St,w)
 
-
+    For TD(𝜆), the garget is the 𝜆-return G^𝜆_t
+      ∆w = 𝛼 * (G^𝜆_t - v_hat(St,w)) * ∇w v_hat(St,w)
 
 
 
