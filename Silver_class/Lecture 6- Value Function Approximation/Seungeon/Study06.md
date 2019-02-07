@@ -126,10 +126,30 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
       ∆w = 𝛼 * (G_t - v_hat(St,w)) * ∇w v_hat(St,w)
 
     For TD(0), the target is the TD target R(t+1) + 𝛾 * v_hat(S(t+1), w)
-      ∆w = 𝛼 * (R(t+1) + + 𝛾 * v_hat(S(t+1), w) - v_hat(St,w)) * ∇w v_hat(St,w)
+      ∆w = 𝛼 * (R(t+1) + 𝛾 * v_hat(S(t+1), w) - v_hat(St,w)) * ∇w v_hat(St,w)
 
     For TD(𝜆), the garget is the 𝜆-return G^𝜆_t
       ∆w = 𝛼 * (G^𝜆_t - v_hat(St,w)) * ∇w v_hat(St,w)
+
+  지금까지는 true value function v_pi(s)가 주어졌다고 가정했지만, RL에서는 이 true value function이 주어지지 않고, reward만이 주어진다. 그래서 실제적으로, RL에서는 v_pi(s)의 true value를 위와 같은 방법으로 가정하고 문제를 해결한다.
+
+  MC에서는 return G_t를 사용하고, TD(0)에서는 TD error를 사용하고, TD(𝜆)에서는 𝜆-return을 사용한다고 지금까지 배웠지요?^^
+
+#### Monte-Carlo with Value Function Approximation
+
+  Return Gt is an unbiased, noisy sample of true value v_pi(St)
+  Can therefore apply supervised learning to "training data":
+    <S1, G1>, <S2, G2>, ... , <ST,GT>
+
+  For example, using linear Monte-Carlo policy evaluation
+    ∆w = 𝛼 * (Gt - v_hat(St,w)) * ∇w v_hat(St,w)
+       = 𝛼 * (Gt - v_hat(St,w)) * x(St)
+
+  Monte-Carlo evaluation converges to a local optimum
+  Even when using non-linear value function approximation
+
+
+
 
 
 
