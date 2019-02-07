@@ -102,7 +102,9 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
   Stochastic gradient descent converges on global optimum
   Update rule is particularly simple
     Delta_w v_hat(S,w) = x(S)
+    => 왜냐하면, 맨 처음 식에서 w에 대해 미분하면 나옴
     Delta w = alpha * (v_pi(S) - v_hat(S,w)) * x(S)
+    => 왜냐하면, stochastic descent에서 이렇게 사용할 거임 x(s)가 곱해지는건
 
     Update = step-size * prediction error * feature value
 
@@ -115,7 +117,16 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
   Parameter vector w gives value of each individual state
     v_hat(S,w) = (I(S=s1), ..., I(S=sn)) * (w1, ... , wn)
 
+#### Incremental Prediction Algorithm
 
+  Have assumed true value function v_pi(s) given by superviser
+  But in RL there is no supervisor, only rewards
+  In practice, we substitute a target for v_pi(s)
+    For MC, the target is the return G_t
+      ∆w = alpha * (G_t - v_hat(St,w)) * ∆w v_hat(St,w)
+
+    For TD(0), the target is the TD target R(t+1) + 𝛾 * v_hat(S(t+1), w)
+      ∆w = alpha * (R(t+1) + + 𝛾 * v_hat(S(t+1), w) - v_hat(St,w)) * ∆w v_hat(St,w)
 
 
 
