@@ -138,6 +138,8 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
 #### Monte-Carlo with Value Function Approximation
 
   Return Gt is an unbiased, noisy sample of true value v_pi(St)
+    => Return Gt는 v_pi(St)의 unbiased estimator인데 noisy하다.
+
   Can therefore apply supervised learning to "training data":
     <S1, G1>, <S2, G2>, ... , <ST,GT>
 
@@ -148,11 +150,35 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
   Monte-Carlo evaluation converges to a local optimum
   Even when using non-linear value function approximation
 
+#### TD Learning with Value Function Approximation
 
+  TD-target R(t+1)+ 𝛾*v_hat(S(t+1),w) is a biased sample of true value v𝜋(St)
 
+  Can still apply supervised learning to "training data":
+    <S1, R2 + 𝛾*v_hat(S2,w)>, <S2, R3 + 𝛾*v_hat(S(3),w)>, ... <S(T-1), RT>
 
+  For example, using linear TD(0)
+    ∆w = 𝛼 * (R + 𝛾*v_hat(S',w) - v_hat(St,w)) * ∇w v_hat(St,w)
+       = 𝛼 * 𝛿 * x(S)
 
+    => 영국인의 질문 R + 𝛾*v_hat(S',w)도 w로 미분이 되는데 ∆w를 저렇게 써도 되는겁니까? 안되지 않습니까?? 곱의 미분으로 해야지 않나요
 
+  Linear TD(0) converges (close) to global optimum
+
+#### TD(𝜆) with Value Function Approximation
+
+  The 𝜆-return G^𝜆_t is also a biased sample of true value v_pi(s)
+  Can again apply supervised learning to "training data":
+    <S1, G^𝜆_1>, <S2, G^𝜆2>, ... , <S(T-1), G^𝜆(T-1)>
+
+  Forward view linear TD(𝜆)
+    ∆w = 𝛼 * (G^𝜆_t - v_hat(St,w)) * ∇w v_hat(St,w)
+       = 𝛼 * (G^𝜆_t - v_hat(St,w)) * x(St)
+
+  Backward view linear TD(𝜆)
+    𝛿t = R_(t+1) + 𝛾 * v_hat(S',w) - v_hat(St,w)
+    Et = 𝛾 * 𝜆 * E(t-1) + x(S_t)
+    ∆w = 𝛼 * 𝛿t * Et
 
 
 
