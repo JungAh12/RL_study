@@ -91,8 +91,13 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
   Represent value function by a linear combination of features
     v_hat(s,w) = x(S)^Tw = Sigma{j=1->n} xj(S)*wj
 
+    Value라는 것이 weight들과 feature들의 내적으로 나타낼 수 있다! 라는 것이
+    Linear value function approximation의 원리 그냥 Linear regression이다!!
+
   Objective function is quadratic in parameters w
     J(w) = E_pi[(v_pi(S) - x(S)^Tw)^2]
+
+    목적 함수는 True value와 Estimation value 사이의 MSE!
 
   Stochastic gradient descent converges on global optimum
   Update rule is particularly simple
@@ -100,6 +105,22 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
     Delta w = alpha * (v_pi(S) - v_hat(S,w)) * x(S)
 
     Update = step-size * prediction error * feature value
+
+#### Table Lookup Features
+
+  Table lookup is a special case of linear value function approximation
+  Using table lookup features
+    x^table(S) = (I(S=s1), ... , I(S=sn))
+
+  Parameter vector w gives value of each individual state
+    v_hat(S,w) = (I(S=s1), ..., I(S=sn)) * (w1, ... , wn)
+
+
+
+
+
+
+
 
 
 
