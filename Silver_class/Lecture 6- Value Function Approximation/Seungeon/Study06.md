@@ -59,17 +59,35 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
       Delta w = -(1/2) * alpha * Delta_w J(w)
       where alpha is a step-size parameter
 
-  Goal : find parameter vector w minimising mean-squared error between approximate value function v_hat(s,w) and true value function v_pi(s)
-    J(w) = E_pi[(v_pi(s) - v_hat(s,w))^2]
+  Value Function Approximation By Stochastic Gradient Descent
 
-  Gradient descent finds a local minimum
-    Delta w = -(1/2) * alpha * Delta_w J(w)
-            = alpha * E_pi[(v_pi(s) - v_hat(s,w)) * Delta_w v_hat(s,w)]
+    Goal : find parameter vector w minimising mean-squared error between approximate value function v_hat(s,w) and true value function v_pi(s)
+      J(w) = E_pi[(v_pi(s) - v_hat(s,w))^2]
 
-  Stochastic gradient descent samples the gradient
-    Delta w = alpha * (v_pi(s) - v_hat(s,w)) * Delta_w v_hat(s,w)
+    Gradient descent finds a local minimum
+      Delta w = -(1/2) * alpha * Delta_w J(w)
+              = alpha * E_pi[(v_pi(s) - v_hat(s,w)) * Delta_w v_hat(s,w)]
 
-  Expected update is equal to full gradient update
+    Stochastic gradient descent samples the gradient
+      Delta w = alpha * (v_pi(s) - v_hat(s,w)) * Delta_w v_hat(s,w)
+      기댓값을 직접 구하지 않고, Sampling을 통해 estimation 하는 것
+
+    Expected update is equal to full gradient update
+
+  Feature Vectors
+
+    Represente state by a feature vector
+      x(S) = (x1(S), x2(S), ... , xn(S))
+
+    For example:
+      Distance of robot from landmarks
+      Trends in the stock market
+      Piece and pawn configurations in chess
+
+
+
+
+
 
 
 
