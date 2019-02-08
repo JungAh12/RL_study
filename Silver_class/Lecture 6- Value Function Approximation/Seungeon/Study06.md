@@ -291,7 +291,7 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
     Sample random mini-batch of transition (s,a,r,s') from D
     Compute Q-learning targets w.r.t. old, fixed parameteres w-
     Optimise MSE between Q-network and Q-learning targets
-      Li(wi) = E_Di [(r + )^2]
+      Li(wi) = E_Di [(r + 𝛾 * maxQ(s',a' ; wi-) - Q(s,a ; wi))^2]
 
     Using variant of stochastic gradient descent
 
