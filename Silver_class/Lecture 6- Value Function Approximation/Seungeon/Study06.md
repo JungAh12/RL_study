@@ -205,20 +205,40 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
                   TD(0)             O             X             X
                 TD(lambda)          O             X             X
 
-  => On-Policy문제에서 Non-linear 문제의 경우 TD(0)와 TD(lambda) prediction의 경우 수렴이 되지 않는다. (Global optimum에 가깝게 가지만 Global optimum으로 가지 못 한다.)
+  => On-Policy문제에서 Non-linear 문제의 경우 TD(0)와 TD(lambda) prediction에 대해 수렴이 보장 되지 않는다. (Global optimum에 가깝게 가지만 Global optimum으로 가지 못 한다.)
 
-     Off-Policy문제에서
+  => Off-Policy문제에서는 Linear와 Non-linear 문제의 경우 TD(0)와 TD(lambda) prediction에 대해 수렴이 보장되지 않는다고 한다.
 
+#### Gradient Temporal-Difference Learning
 
+  TD does not follow the gradient of any objective function
+  This is why TD can diverge when off-policy or using non-linear function approximation
+  Gradient TD follows true gradient of projected Bellman error
 
+  => TD가 off-policy 혹은 non-linear function approximation 문제에서 발산하는 이유는 TD가 어떤 objective function의 경사를 따라가고 있지 않기 때문이다.
 
+  => Gradient TD가 Bellman error의 true gradient를 쫓기 때문에 수렴성이 좋다고 실버 교수님이 주장중
 
+  (Prediction)
 
+  On-Policy     Algorithm     Table Lookup      Linear      Non-Linear
+                    MC              O             O             O
+                  TD(0)             O             O             X
+                Gradient TD         O             O             O
 
+  Off-Policy    Algorithm     Table Lookup      Linear      Non-Linear
+                    MC              O             O             O
+                  TD(0)             O             X             X
+                Gradient TD         O             O             O
 
+  (Control)
+                Algorithm         Table Lookup      Linear      Non-Linear
+            Monte-Carlo Control         O            (O)            X
+                  Sarsa                 O            (O)            X
+                Q-learning              O             X             X
+            Gradient Q-learning         O             O             X
 
-
-
+  (O)는 near-optimal value function 근처에서 왔다리 갔다리 함을 의미
 
 
 
