@@ -239,6 +239,43 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
             Gradient Q-learning         O             O             X
 
   (O)는 near-optimal value function 근처에서 왔다리 갔다리 함을 의미
+  => Gradient Q-learning이 control일 때에도 수렴성이 좋다고 함ㅎ
+
+### Batch Methods
+
+#### Batch Reinforcement Learning
+
+  Gradient descent is simple and appealing
+  But it is not sample efficient
+  Batch methods seek to find the best fitting value function
+  Given the agent's experience ("training data")
+
+  => Sample이 한번 쓰고 버려지는 비효율적인 기존의 방법을 극복하기 위해 나온 방법
+
+#### Least Squares Prediction
+
+  Given value function approximation v_hat(s,w) ≈ v_pi(s)
+  And experience D consisting of <state, value> pairs
+    D = {<s1, v1>, <s2,v2>, ... , <sT,vT>}
+
+  Which parameteres w give the best fitting value function v_hat(s,w)?
+  Least squares algorithms find parameter vector w minimising sum-squared error between v_hat(st,w) and target values v_t,
+    LS(w) = Sigma {t=1->T} (v^𝜋_t - v_hat(st,w))^2
+          = E_D[(v^𝜋 - v_hat(s,w))^2]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
