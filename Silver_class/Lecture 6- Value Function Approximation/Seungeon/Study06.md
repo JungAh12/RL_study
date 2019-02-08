@@ -303,13 +303,35 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
 
   Network architecture and hyperparameters fixed across all games
 
+  => RL에서의 의미 DQN이 Off-policy이고, TD이고, Neural network여서 수렴이 잘 안되는 강화학습 방법인데, Replay memory의 이용과 Fixed-Q target scheme을 이용해서, 한계를 돌파했다.
 
+#### Linear Least Squares Prediction
 
+  Experience replay finds least squares solution
+  But it may take many iterations
+  Using linear value function approximation v_hat(s,w) = x(s)^Tw
+  We can solve the least squares solution directly
 
+  At minimum of LS(w), the expected update must be zero
+    E_d[Delta w] = 0
+    일련의 과정을 거치면~~
+    w 를 구할 수 있음. 이게 바로 Least squares method 였지?
 
+  For N features, direct solution time is O(N^3)
+  Incremental solution time is O(N^2) using Shermann - Morrison
 
+  We do not know true values v^𝜋t
+  In practice, our "training data" must use noisy or biased samples of v^𝜋t
+    LSMC Least Squares Monte-Carlo uses return
+      v^𝜋(t) ≈ G(t)
 
+    LSTD Least Squares Temporal-Difference uses TD target
+      v^𝜋(t) ≈ R(t+1) + gamma * v_hat(S(t+1), w)
 
+    LSTD(lambda) Least Squares TD(lambda) uses lambda-return
+      v^𝜋(t) ≈ G^𝜆(t)
+
+  In each case solve directly for fixed point of MC / TD / TD(lambda)
 
 
 
