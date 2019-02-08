@@ -331,7 +331,7 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
     LSTD(lambda) Least Squares TD(lambda) uses lambda-return
       v^𝜋(t) ≈ G^𝜆(t)
 
-  In each case solve directly for fixed point of MC / TD / TD(lambda)
+  In each case solve directly for fixed point of MC / TD / TD(𝜆)
 
 
 
