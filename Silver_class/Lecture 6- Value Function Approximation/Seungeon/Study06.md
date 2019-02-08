@@ -184,7 +184,34 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
 
 #### Control with Value Function Approximation
 
-여기부터는 그냥 강의 듣거나 글쓰기 보다는 내가 읽고 이해해보자
+  기존의 Dynamic programming과 다르게, 모르는 model을 풀거나 혹은 아는 model이여도 너무 클 경우에 control 문제를 Value function approximation을 통해  풀어야 하기 때문에, 다음과 같이 문제를 해결한다.
+
+  Policy evaluation  : Approximate policy evaluation q^hat(., ., w) ≈ q_pi
+  Policy improvement : e-greedy policy improvement
+
+#### Convergence of Prediction Algorithms
+
+  On-Policy     Algorithm     Table Lookup      Linear      Non-Linear
+                    MC              O             O             O
+                  TD(0)             O             O             X
+                TD(lambda)          O             O             X
+
+  Off-Policy
+
+
+
+
+  => On-Policy문제에서 Non-linear 문제의 경우 TD(0)와 TD(lambda) prediction의 경우 수렴이 되지 않는다. (Global optimum에 가깝게 가지만 Global optimum으로 가지 못 한다.)
+
+     Off-Policy문제에서
+
+
+
+
+
+
+
+
 
 
 
