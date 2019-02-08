@@ -295,7 +295,13 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
 
     Using variant of stochastic gradient descent
 
+  DQN in Atari
+    End-to-end learning of values Q(s,a) from pixel s
+    Input state s is stack of raw pixels from last 4 frames
+    Output is Q(s,a) for 18 joystick/button positions
+    Reward is change in score for that step
 
+  Network architecture and hyperparameters fixed across all games
 
 
 
