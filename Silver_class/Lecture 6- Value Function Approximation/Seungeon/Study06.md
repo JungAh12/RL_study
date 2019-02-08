@@ -189,6 +189,10 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
   Policy evaluation  : Approximate policy evaluation q^hat(., ., w) ≈ q_pi
   Policy improvement : e-greedy policy improvement
 
+#### Study of lambda : Should We Bootstrap?
+
+  Mountain Car, Random walk, Puddle world, Cart and Pole 등의 문제에서 0~1 사이 어딘가에서 가장 좋은 성능을 가지는 lambda가 존재한다. return보다, TD(0)보다 좋다는 것은 경험적으로 보여줄 수 있다.
+
 #### Convergence of Prediction Algorithms
 
   On-Policy     Algorithm     Table Lookup      Linear      Non-Linear
@@ -196,10 +200,10 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
                   TD(0)             O             O             X
                 TD(lambda)          O             O             X
 
-  Off-Policy
-
-
-
+  Off-Policy    Algorithm     Table Lookup      Linear      Non-Linear
+                    MC              O             O             O
+                  TD(0)             O             X             X
+                TD(lambda)          O             X             X
 
   => On-Policy문제에서 Non-linear 문제의 경우 TD(0)와 TD(lambda) prediction의 경우 수렴이 되지 않는다. (Global optimum에 가깝게 가지만 Global optimum으로 가지 못 한다.)
 
