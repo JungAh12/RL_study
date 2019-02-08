@@ -263,8 +263,37 @@ Silver의 강의는 1~5 강과 6~10강으로 나뉜다고 생각할 수 있다.
     LS(w) = Sigma {t=1->T} (v^𝜋_t - v_hat(st,w))^2
           = E_D[(v^𝜋 - v_hat(s,w))^2]
 
+  Experience D의 v_𝜋들로 v_hat을 표현하고 싶은 것..?? 대충 D를 통해서 v_hat을 구하고 싶다 이런 느낌으로 생각해보자구~
 
+#### Stochastic Gradient Descent with Experience Replay
 
+  Given experience consisting of <state, value> pairs
+    D = {<s1, v^𝜋1>, <s2, v^𝜋2>, ... , <ST, v^𝜋T>}
+
+  Repeat:
+    1. Sample state, value from experience
+      <s,v^𝜋> ~ D
+
+    2. Apply stochastic gradient descent update
+      ∆w = alpha * (v^𝜋 - v_hat(s,w)) * Delta_w v_hat(s,w)
+
+  Converges to least squares solution
+    w^𝜋 = {w} argmin LS(w)
+
+  => Experience replay는, Off-policy RL에서 많이 사용되고는 한다.
+  => Experience replay를 사용하게 되면, LS(w)를 가장 작게만드는 w vector가 w^𝜋가 된다!
+
+#### Experience Replay in Deep Q-Networks (DQN)
+
+  DQN uses experience replay and fixed Q-targets
+    take action a_t according to e-greedy policy
+    Store transition (st, at, r(t+1), s(t+1)) in replay memory D
+    Sample random mini-batch of transition (s,a,r,s') from D
+    Compute Q-learning targets w.r.t. old, fixed parameteres w-
+    Optimise MSE between Q-network and Q-learning targets
+      Li(wi) = E_Di [(r + )^2]
+
+    Using variant of stochastic gradient descent
 
 
 
