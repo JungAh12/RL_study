@@ -263,8 +263,38 @@ Policy Gradient
 
   => Policy iteration의 느낌이 있지? Critic이 평가하고 Actor가 행동하고ㅎㅎㅎ 재밌군
 
-  
+#### Estimating the Action-Value Function
 
+  The critic is solving a familiar problem : policy evaluation
+  How good is policy 𝜋𝜃 for current parameters 𝜃?
+  This problem was explored in previous two lectures, e.g.
+    Monte-Carlo policy evaluation
+    Temporal - Difference learning
+    TD(𝜆)
+
+  Could also use e.g. least-squares policy evaluation
+
+#### Action-Value Actor-Critic
+
+  Simple actor-critic algorithm based on action-value critic
+  Using linear value function approximation. Qw(s,a) = 𝜙(s,a)^T w
+    Critic Updates w by linear TD(0)
+    Actor  Updates 𝜃 by policy gradient
+
+  Pseudo code
+
+  function QAC
+    Initialise s, 𝜃
+    Sample a ~ 𝜋𝜃
+    for each step do
+      Sample reward r = R(s,a); sample transition s' ~ P(s,a)
+      Sample action a' ~ 𝜋𝜃(s',a')
+      𝛿 = r + 𝛾 ∗ Qw(s',a') - Qw(s,a)
+      𝜃 = 𝜃 + 𝛼 * ∇𝜃 log(𝜋𝜃(s,a)) * Qw(s,a)
+      w <- w + β * 𝛿 * 𝜙(s,a)
+      a <- a', s <- s'
+    end for
+  end function
 
 
 
