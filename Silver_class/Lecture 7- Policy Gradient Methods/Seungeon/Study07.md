@@ -88,12 +88,86 @@ Policy Gradient
 
   Goal : given policy 𝜋𝜃(s,a) with parameters 𝜃, find best 𝜃
   But how do we measure the quality of a policy 𝜋𝜃?
+
   In episodic environments we can use the start value
     J1(𝜃) = V^𝜋𝜃(s1) = E_𝜋𝜃[v1]
+    (첫 번째 state에서 value function을 policy의 목적함수로 잡자!)
 
   In continuing environments we can use the average value
-    JavV(𝜃) =
+    JavV(𝜃) = Σ d^𝜋𝜃(s) * V^𝜋𝜃(s)
 
+  Or the average reward per time-step
+    JavR(𝜃) = Σ d^𝜋𝜃(s) Σ 𝜋𝜃(s,a) * R(s,a)
+
+  d^𝜋𝜃(s)는 Markov chain 𝜋의 stationary distribution이다.
+  Policy 𝜋를 따라 계속 행동하다보면은 각 상태에 머무르는 확률을 구할 수 있다.
+  그것이 d^𝜋𝜃(s)이다.
+
+#### Policy Optimisation
+
+  Policy based reinforcement learning is an optimisation problem
+  Find 𝜃 that maximises J(𝜃)
+  Some approaches do not use gradient
+    Hill climbing
+    Simplex / amoeba / Nelder Mead
+    Genetic algorithms
+
+  Greater efficiency often possible using gradient
+    Gradient descent
+    Conjugate gradient
+    Quasi-newton
+
+  We focus on graidnet descent, many extensions possible
+  And on methods that exploit sequential structure
+
+#### Policy Gradient
+  Let J(𝜃) be any policy objective function
+  Policy gradient algorithms search for a local maximum in J(𝜃) by ascending the gradient of the policy, w.r.t. parameters 𝜃
+    ∆𝜃 = 𝛼∇𝜃 J(𝜃)
+
+  Where ∇𝜃 J(𝜃) is the policy gradient
+    ∇𝜃 J(𝜃) = (𝜕J(𝜃)/𝜕𝜃1 , 𝜕J(𝜃)/𝜕𝜃2, ... , 𝜕J(𝜃)/𝜕𝜃n)'
+
+  and 𝛼 is a step-size parameter
+
+  J에 대한 gradient로 𝜃를 업데이트!
+
+#### Computing gradients by finite difference
+
+  To evaluate policy gradient of 𝜋𝜃(s,a)
+  For each dimension k in [1,n]
+    Estimating kth partial derivative of objective function w.r.t 𝜃
+    By perturbing 𝜃 by small amount e in kth dimension
+      𝜕J(𝜃) / 𝜕𝜃k ≈ {J(𝜃+euk) - J(𝜃)} / e
+      where uk is unit vector with 1 in kth component, 0 elsewhere
+
+  Uses n evaluations to compute policy gradient in n dimensions
+  Simple, noisy, inefficient - but sometimes effective
+  Works for arbitrary policies, even if policy is not differentiable
+
+  𝜃1, 𝜃2, ... , 𝜃n에 대해 finite difference를 통해 J 의 gradient를 구하는 것.
+
+  실제 사용예 : Training AIBO to walk by finite difference policy gradient
+
+#### Score Function
+
+  We now compute the policy gradient analytically
+  Assume policy 𝜋𝜃 is differentiable whenever it is non-zero
+  and we know the gradient ∇𝜃 𝜋𝜃(s,a)
+  Likelihood ratios exploit the following identity
+    ∇𝜃 𝜋𝜃(s,a) = 𝜋𝜃(s,a) * ∇𝜃 𝜋𝜃(s,a) / 𝜋𝜃(s,a)
+               = 𝜋𝜃(s,a) * ∇𝜃 log(𝜋𝜃(s,a))
+
+  The score function is ∇𝜃 log(𝜋𝜃(s,a))
+
+  이런 것을 Likelihood ratio trick이라고 한다. 이걸 왜 하는지를 파악하는 것이 핵심이다.
+
+#### Softmax Policy
+
+  We will use a softmax policy as a running example
+  Weight actions using linear combination of features Pi(s,a)^T𝜃
+  Probability of action is proportional to exponentiated weight
+    𝜋𝜃(s,a)
 
 
 
