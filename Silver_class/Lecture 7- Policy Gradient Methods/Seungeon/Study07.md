@@ -86,6 +86,13 @@ Policy Gradient
 
 #### Policy Objective Functions
 
+  Goal : given policy 𝜋𝜃(s,a) with parameters 𝜃, find best 𝜃
+  But how do we measure the quality of a policy 𝜋𝜃?
+  In episodic environments we can use the start value
+    J1(𝜃) = V^𝜋𝜃(s1) = E_𝜋𝜃[v1]
+
+  In continuing environments we can use the average value
+    JavV(𝜃) =
 
 
 
