@@ -357,8 +357,20 @@ Policy Gradient
 
   Baseline을 쓰는 이유는, Gradient가 100만, 99만 막 이럴때 그 값들로 학습을 하는 것이 아니라!
   100만-95만 = 5만, 99만-95만 = 4만 이런 값들로 학습을 하여 variance를 줄이고 싶다는 것..??
-  Control variate 느낌인데 이거 맞나?
+  그러니까 상대적인 차이를 가지고 학습을 하고 싶다는 거지ㅇㅇ
+  Control variate 느낌인데 뭔가 control variate보다 살짝 부족한 느낌이네
 
+#### Estimating the Advantage Function
+
+  The advantage function can significantly reduce variance of policy gradient
+  So the critic should really estimate the advantage function
+  For example, by estimating both V^𝜋𝜃 and Q^𝜋𝜃(s,a)
+  Using two function approximators and two parameter vectors,
+    Vv(s)   ≈ V^𝜋𝜃
+    Qw(s,a) ≈ Q^𝜋𝜃(s,a)
+    A(s,a)  = Qw(s,a) - Vv(s)
+
+  And updating both value functions by e.g. TD learning
 
 
 
