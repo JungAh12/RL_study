@@ -165,17 +165,36 @@ Policy Gradient
 #### Softmax Policy
 
   We will use a softmax policy as a running example
-  Weight actions using linear combination of features Pi(s,a)^T𝜃
+  Weight actions using linear combination of features 𝜙(s,a)^T𝜃
   Probability of action is proportional to exponentiated weight
-    𝜋𝜃(s,a)
+    𝜋𝜃(s,a) ∝ e^𝜙(s,a)^T * 𝜃
 
+  The score function is
+    ∇𝜃 log(𝜋𝜃(s,a)) = 𝜙(s,a) - E_𝜋𝜃[𝜙(s,.)]
 
+#### Gaussian Policy
+  In continuous action spaces, a Gaussian policy is natural
+  Mean is a linear combination of state features mu(s) = 𝜙(s,a)^T * 𝜃
+  Variance may be fixed ^2, or can also parameterised
+  Policy is Gaussian, a ~ N(mu(s) , 𝜎^2)
+  The score function is
+    ∇𝜃 log(𝜋𝜃(s,a)) = (a-mu(s)) * 𝜙(s) / 𝜎^2
 
+#### One-Step MDP
 
+  Consider a simple class of one-step MDPs
+    Starting in states s~d(s)
+    Terminating after one time-step with reward r = R(s,a)
 
+  Use likelihood ratios to compute the policy gradient
+    J(𝜃) = E_𝜋𝜃[r]
+         = Σ d^𝜋𝜃(s) Σ 𝜋𝜃(s,a) * R(s,a)
 
+    ∇𝜃 J(𝜃) = Σ d^𝜋𝜃(s) Σ 𝜋𝜃(s,a) * ∇𝜃 log(𝜋𝜃(s,a)) * R(s,a)
+            E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * r]
 
-
+  => 아주 중요!! J(𝜃)의 gradient를 기댓값 형태로 표현할 수 있다!
+  => Sampling을 통해 해결할 수 있다는 것 (Likelihood ratio trick좋지?)
 
 
 
