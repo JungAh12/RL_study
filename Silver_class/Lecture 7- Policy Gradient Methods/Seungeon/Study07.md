@@ -229,6 +229,20 @@ Policy Gradient
     return 𝜃
   end function
 
+  Monte-Cralo 기법을 사용하고 있기 때문에 Q 값 대신 returen을 쓰고 있다.
+
+  Puck World Example
+    Continuous actions exert small force on puck
+    Puck is rewarded for getting close to target
+    Target location is reset every 30 secodnds
+    Policy is trained using variant of Monte-Carlo policy gradient
+
+  => 주의해서 봐야할 점1 : 학습 곡선이 지그재그가 아니라 매끄럽게 올라간다는 장점이 있다 즉, stable 하다.
+
+  => 주의해서 봐야할 점2 : variance가 너무 커서, iteration이 9*10^7 정도 되야 수렴이 된다. 즉, 학습이 느리다.
+
+### Actor - Critic Policy Gradient
+
 
 
 
