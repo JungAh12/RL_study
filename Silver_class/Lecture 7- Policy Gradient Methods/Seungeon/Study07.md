@@ -290,8 +290,9 @@ Policy Gradient
       Sample reward r = R(s,a)
       Sample transition s' ~ P(s,a)
       Sample action a' ~ 𝜋𝜃(s',a')
+
       𝛿 = r + 𝛾 ∗ Qw(s',a') - Qw(s,a)
-      𝜃 = 𝜃 + 𝛼 * ∇𝜃 log(𝜋𝜃(s,a)) * Qw(s,a)
+      𝜃 <- 𝜃 + 𝛼 * ∇𝜃 log(𝜋𝜃(s,a)) * Qw(s,a)
       w <- w + β * 𝛿 * 𝜙(s,a)
       a <- a', s <- s'
     end for
