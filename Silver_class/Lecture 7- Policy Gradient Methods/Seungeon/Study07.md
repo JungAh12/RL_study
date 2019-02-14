@@ -211,7 +211,23 @@ Policy Gradient
     For any differentiable policy 𝜋𝜃(s,a), for any of the policy objective functions J=J1, J_avR, or 1/(1-𝛾)JavV, the policy gradient is
       ∇𝜃 J(𝜃) = E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * Q^𝜋𝜃(s,a)]
 
+#### Monte-Carlo Policy Gradient (REINFORCE)
+  Update parameters by stochastic gradient ascent
+  Using policy gradient theorem
+  Using return vt as an unbiased sample of Q^𝜋𝜃(st,at)
+    ∆𝜃t = 𝛼 * ∇𝜃 log(𝜋𝜃(s,a)) * vt
 
+  Pseudo code
+
+  function REINFORCE
+    Initialise 𝜃 arbitrarily
+    for each episode {s1, a1, r2, ... , s(T-1), a(T-1), rT} ~ 𝜋𝜃 do
+      for t = 1 to T-1 do
+       𝜃 <- 𝜃 + 𝛼 * ∇𝜃 log(𝜋𝜃(s,a)) * vt
+      end for
+    end for
+    return 𝜃
+  end function
 
 
 
