@@ -243,6 +243,38 @@ Policy Gradient
 
 ### Actor - Critic Policy Gradient
 
+#### Reducing Variance Using a Critic
+
+  Monte-Carlo policy gradient (REINFORCE) still has high variance
+  We use a critic to estimate the action-value function,
+    Qw(s,a) ≈ Q^𝜋𝜃(s,a)
+
+  Actor-Critic algorithms maintain two sets of parameters
+    Critic : Updates action-value function parameters w
+    Actor  : Updates policy parameters 𝜃, in direction suggested by critic
+
+  Actor-Critic algorithms follow an approximate policy gradient
+    ∇𝜃 J(𝜃) = E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * Q^w(s,a)]
+         ∆𝜃 = = 𝛼 * ∇𝜃 log(𝜋𝜃(s,a)) * Q^w(s,a)
+
+  => 우리 지금까지 Q를 근사해서 구했잖아 그거 쓰면 안돼?
+  => 잘 되더라. 그래서 Q 값을 critic으로 학습한다. Q는 w라는 parameter로 표현 및 학습한다.
+  => Policy는 REINFORCE처럼 𝜃라는 parameter로 학습한다.
+
+  => Policy iteration의 느낌이 있지? Critic이 평가하고 Actor가 행동하고ㅎㅎㅎ 재밌군
+
+  
+
+
+
+
+
+
+
+
+
+
+
 
 
 
