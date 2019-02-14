@@ -372,14 +372,51 @@ Policy Gradient
 
   And updating both value functions by e.g. TD learning
 
+  => Advantage function을 이용하면 Variance가 엄청나게 reduction된다. 하지만, V와 Q 모두 estimation해야 한다.
+  => 그래서 V는 v라는 parameter를 가지고 TD learning등으로 예측하고
+  => Q와 policy는 위에 언급한 것 처럼 진행하면 된다.
+  => 하지만 그러면 parameter가 3개지?? 그래서 천재들은 다음과 같이 해결했다.
 
+  For the true value function V^𝜋𝜃, the TD error 𝛿^𝜋𝜃
+    𝛿^𝜋𝜃 = r + 𝛾 * V^𝜋𝜃(s') - V^𝜋𝜃(s)
 
+  is an unbiased estimate of the advantage function (위의 식에 expectation해보면)
+    E_𝜋𝜃[𝛿^𝜋𝜃|s, a] = E_𝜋𝜃[r + 𝛾 * V^𝜋𝜃(s')|s, a] - V^𝜋𝜃(s)
+                    = Q^𝜋𝜃(s,a) - V^𝜋𝜃(s)
+                    = A^𝜋𝜃(s,a)
 
+  => State = s, Action = a 일때 r + 𝛾 * V^𝜋𝜃(s')의 기댓값은 Q(s,a)이다.
+  => 즉, s,a에 대한 TD error의 기댓값은 Advantage function이 된다는 것이다.
 
+  So we can use the TD error to compute the policy gradient
+    ∇𝜃 J(𝜃) = E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * A^𝜋𝜃(s,a)] ?
+    ∇𝜃 J(𝜃) = E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * 𝛿^𝜋𝜃] !
 
+  =>그렇기 때문에 policy gradient를 계산하기 위한  advantage function의 자리에 TD error를 사용해도 된다.
 
+  In practice we can use an approximate TD error
+    𝛿_v = r + 𝛾 * Vv(s') - Vv(s)
 
+  =>하지만, 실제 true value는 알기 쉽지 않고, v라는 parameter를 이용해 근사한 Vv(s)를 사용해도 된다.
 
+  This approach only requires one set of critic parameters v !!
+
+  => Q값을 근사할 필요가 없다는 큰 장점이 있다.
+
+#### Critics at Different Time-scales
+
+  Critic can estimate value function V𝜃(s) from many targets at different time-scales from last lectur...
+    For MC,
+
+    For TD(0),
+
+    For forward-veiw TD(),
+
+    For backward-view TD(),
+
+#### Actors at Different Time-scales
+
+  The policy gradient can also be estimated at many time-scales
 
 
 d
