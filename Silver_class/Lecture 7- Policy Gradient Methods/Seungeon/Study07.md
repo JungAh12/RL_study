@@ -418,5 +418,20 @@ Policy Gradient
 
   The policy gradient can also be estimated at many time-scales
 
+#### Alternator ~~~
 
-d
+#### Natural ~~~
+
+#### Summary of Policy Gradient Algorithms
+
+  The policy gradient has many equivalent forms
+
+  REINFORCE : return vt를 사용했었다.
+  Q Actor-Critic : return은 variance가 너무 높아서 Q를 사용했었다.
+  Advantage Actor-Critic : 그래도 variance가 높아서 Advantage function을 사용했었다.
+  TD Actor-Critic : TD error의 expectation이 Advantage function이기 때문에 TD error를 사용
+  TD(lambda) Actor-Critic : 한 step만 보는게 아니라 여러 step을 보는 TD(lambda)를 사용
+
+  Each leads a stochastic gradient ascent algorithm
+  Critic uses policy evaluation (e.g. MC or TD learning)
+  to estimate Q(s,a), A(s,a) or V(s)
