@@ -172,13 +172,18 @@ Policy Gradient
   The score function is
     ∇𝜃 log(𝜋𝜃(s,a)) = 𝜙(s,a) - E_𝜋𝜃[𝜙(s,.)]
 
+  계산식이 생략되었긴 하지만, softmax로 policy를 정해주면 score function을 구할 수 있다는 것
+
 #### Gaussian Policy
   In continuous action spaces, a Gaussian policy is natural
   Mean is a linear combination of state features mu(s) = 𝜙(s,a)^T * 𝜃
-  Variance may be fixed ^2, or can also parameterised
+  Variance may be fixed 𝜎^2, or can also parameterised
   Policy is Gaussian, a ~ N(mu(s) , 𝜎^2)
+
   The score function is
     ∇𝜃 log(𝜋𝜃(s,a)) = (a-mu(s)) * 𝜙(s) / 𝜎^2
+
+  계산식이 생략되었긴 하지만, Gaussian policy를 사용하면 위와 같은 score function을 구할 수 있다는 것
 
 #### One-Step MDP
 
@@ -195,6 +200,20 @@ Policy Gradient
 
   => 아주 중요!! J(𝜃)의 gradient를 기댓값 형태로 표현할 수 있다!
   => Sampling을 통해 해결할 수 있다는 것 (Likelihood ratio trick좋지?)
+
+#### Policy Gradient Theorem
+
+  The policy gradient theorem generalises the likelihood ratio appraoch to multi-step MDPs
+  Replaces instantaneous reward r with long-term value Q^𝜋(s,a)
+  Policy gradient theorem applies to start state objective, average reward and average value objective
+
+  Theorem
+    For any differentiable policy 𝜋𝜃(s,a), for any of the policy objective functions J=J1, J_avR, or 1/(1-𝛾)JavV, the policy gradient is
+      ∇𝜃 J(𝜃) = E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * Q^𝜋𝜃(s,a)]
+
+
+
+
 
 
 
