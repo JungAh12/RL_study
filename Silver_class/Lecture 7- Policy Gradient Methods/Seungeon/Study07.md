@@ -299,11 +299,65 @@ Policy Gradient
     end for
   end function
 
+#### Bias in Actor-Critic algorithm
 
+  Approximating the policy gradient introduces bias
+    => Policy gradient를 근사하게 되면 bias가 발생한다.
 
+  A biased policy gradient may not find the right solution
+    e.g. if Qw(s,a) uses aliased features, can we solve gridworld example?
 
+  Luckily, if we choose value function approximation carefully
+  Then we can avoid introducing any bias
+  i.e. We can still follow the exact policy gradient
 
+#### Compatible function approximation Theorem
 
+  If the following two conditions are satisfied:
+   1. Value function approximator is compatible to the policy
+      ∇w Qw(s,a) = ∇𝜃 log(𝜋𝜃(s,a))
+
+   2. Value function parameters w minimise the mean-squared error
+      e = E_𝜋𝜃[(Q^𝜋𝜃(s,a) - Qw(s,a))^2]
+
+  Then the policy gradient is exact,
+      ∇𝜃 J(𝜃) = E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * Q^w(s,a)]
+
+#### Proof of compatible function approximation theorem
+
+  If w is chosen to minimise mean-squared error, gradient of e w.r.t. w must be zero,
+
+  ∇w e = 0
+    E_𝜋𝜃[(Q^𝜋𝜃(s,a) - Qw(s,a)) * ∇w Qw(s,a)] = 0
+
+  위의 조건 1에 의해,
+    E_𝜋𝜃[(Q^𝜋𝜃(s,a) - Qw(s,a)) * ∇𝜃 log(𝜋𝜃(s,a))] = 0
+
+  즉,
+    E_𝜋𝜃[Q^𝜋𝜃(s,a) * ∇𝜃 log(𝜋𝜃(s,a)] = E_𝜋𝜃[Qw(s,a) * ∇𝜃 log(𝜋𝜃(s,a)]
+
+  따라서, Qw(s,a)는 Q^𝜋𝜃(s,a)를 대신해서 policy gradient에 직접적으로 사용할 수 있다.
+    ∇𝜃 J(𝜃) = E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * Q^w(s,a)]
+
+#### Reducing Variance Using a Baseline
+
+  We subtract a baseline function B(s) from the policy gradient
+  This can reduce variance, without changing expectation
+    E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * B(s)] = {s} Σ d^𝜋𝜃(s) {a} Σ ∇𝜃 𝜋𝜃(s,a) * B(s)
+                                 = {s} Σ d^𝜋𝜃(s) * B(s) ∇𝜃 {a} Σ 𝜋𝜃(s,a)
+                                   ({a}Σ 𝜋𝜃(s,a) = 1 => ∇𝜃 {a} Σ 𝜋𝜃(s,a) = 0)
+                                 = 0!!!
+
+    E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a))*Qw(s,a)] = E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a))*(Qw(s,a)-B(s)]
+
+  A good baseline is the state value function B(s) = V^𝜋𝜃(s)
+  So we can rewrite the policy gradient using the advantage function A^𝜋𝜃(s,a)
+    A^𝜋𝜃(s,a) = Q^𝜋𝜃(s,a) - V^𝜋𝜃(s)
+    ∇𝜃 J(𝜃) = E_𝜋𝜃[∇𝜃 log(𝜋𝜃(s,a)) * A^𝜋𝜃(s,a)]
+
+  Baseline을 쓰는 이유는, Gradient가 100만, 99만 막 이럴때 그 값들로 학습을 하는 것이 아니라!
+  100만-95만 = 5만, 99만-95만 = 4만 이런 값들로 학습을 하여 variance를 줄이고 싶다는 것..??
+  Control variate 느낌인데 이거 맞나?
 
 
 
