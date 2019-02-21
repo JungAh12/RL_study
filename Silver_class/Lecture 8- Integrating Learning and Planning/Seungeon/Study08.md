@@ -26,8 +26,19 @@ Model - Based RL
   model로 부터 value function 혹은 policy function을 planning한다!
 
 #### Model-Based RL Reinforcement Learning
+1. Model - based RL이란 policy가 action을 했을 때 생기는 경험을 통해서
+2. model을 학습하고
+3. Planning을 통해서 value와 policy를(MDP를) learn하고 solve 하는 것이다.
 
+Advantages:
+  Can efficiently learn model by supervised learning methods
+  Can reason about model uncertainty
+  1. spuervised learning을 통해서 model을 효율적으로 미리 학습 시킬 수 있다.
+  2. 모델의 불확실성을 다룰 수 있다.
 
+Disadvantages:
+  First learn a model, then construct a value function
+    => two suorces of approximation eror
 
 
 
