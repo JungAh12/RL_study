@@ -39,7 +39,40 @@ Advantages:
 Disadvantages:
   First learn a model, then construct a value function
     => two suorces of approximation eror
+    => 틀릴 수 있는 곳이 두 군데나 생긴다. 모델을 잘 못 학습하던가 value를 잘못 학습하던가 그럴 수 있다.
 
+What is model?
+  A model M is a representation of an MDP <S, A, P, R>, parameterized by n
+  We will assume state space S and action space A are known
+  So a model M = <Pn, Rn> represents state transitions Pn ≈ P and rewards Rn ≈ R
+    S_(t+1) ≈ Pn(S_(t+1) | S_t, A_t)
+    R_(t+1) = Rn(R_(t+1) | S_t, A_t)
+
+  Typically assume conditional independence between state transitions and rewards
+    P[S_(t+1), R_(t+1) | S_t, A_t] = P[S_(t+1) | S_t, A_t] * P[R_(t+1) | S_t, A_t]
+
+Model Learning
+  Goal : estimate model Mn from experience {S1, A1, R2, ... , ST}
+  This is a supervised learning problem
+        S1, A1 => R2, S2
+        S2, A2 => R3, S3
+                .
+                .
+                .
+  S_(T-1), A_(T-1) => RT, ST
+
+  Learning s, a -> r  is a regression problem
+  Learning s, a -> s' is a density estimation problem
+  Pick loss function, e.g. mean-suqared error, KL divergence and so on
+  Find parameters n that minimise empirical loss
+
+Examples of Models
+  Table Lookup Model
+  Linear Expectation Model
+  Linear Gaussian Model
+  Gaussian Process Model
+  Deep Belief Network Model
+  
 
 
 
