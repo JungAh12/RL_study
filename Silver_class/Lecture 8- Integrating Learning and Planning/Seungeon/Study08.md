@@ -163,13 +163,15 @@ Dyna-Q Algorithm
     (a) S <- current (nonterminal) state
     (b) A <- e-greedy(S,Q)
     (c) Execute action A; observe resultant reward, R, and state, S'
-    (d) Q(S,A) <- Q(S,A) + 𝛼 * [R + gamma * max{Q(S',A)} - Q(S,A)]
+    (d) Q(S,A) <- Q(S,A) + 𝛼 * [R + 𝛾 * max{Q(S',A)} - Q(S,A)]
     (e) Model(S,A) <- R, S' (assuming deterministic environment)
     (f) Repeat n times :
         S <- random previously observed state
         A <- random action previously taken in S
         R, S' <- Model(S,A)
-        Q(S,A) <- Q(S,A) + 𝛼 * [R + gamma * max{Q(S',A)} - Q(S,A)]
+        Q(S,A) <- Q(S,A) + 𝛼 * [R + 𝛾 * max{Q(S',A)} - Q(S,A)]
+
+    => (e)과정은 Model update이고 (f)과정은 model을 통한 planning!
 
 
 
