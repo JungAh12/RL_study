@@ -157,7 +157,8 @@ Integrating Learning and Planning
     Learn a model from experience
     Learn and plan value function (and/or policy) from real and simulated experience
 
-Dyna-Q Algorithm
+#### Dyna-Q Algorithm
+Dyna-Q Algorithm pseudo code
   Initialize Q(s,a) and Model(s,a) for all s and a
   Do forever:
     (a) S <- current (nonterminal) state
@@ -171,7 +172,11 @@ Dyna-Q Algorithm
         R, S' <- Model(S,A)
         Q(S,A) <- Q(S,A) + 𝛼 * [R + 𝛾 * max{Q(S',A)} - Q(S,A)]
 
-    => (e)과정은 Model update이고 (f)과정은 model을 통한 planning!
+    => (e)과정은 Model learning이고 (f)과정은 model을 통한 planning!
+
+
+
+
 
 
 
