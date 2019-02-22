@@ -248,6 +248,49 @@ Repeat (each simulation)
 Monte-Carlo control applied to simulated experience
 Converges on the optimal search tree, Q(S,A) -> q*(S,A)
 
+Advantages of MC Tree Search
+  Highly selective best-first search
+  Evaluates states dynamically (unlike e.g. DP)
+  Uses sampling to break curse of dimensionality
+  Works for "black-box" models (only requires samples)
+  Computationally efficient, anytime, parallelisable
+
+#### Temporal - Difference Search
+  Simulation-based search
+  Using TD instead of MC (bootstrapping)
+  MC tree search applies MC control to sub-MDP from now
+  TD search applies Sarsa to sub-MDP from now
+
+MC vs TD search
+  For model-free reinforcement learning, bootstrapping is helpful
+    TD learning reduces variance but increases bias
+    TD learning is usually more efficient than MC
+    TD(𝜆) can be much more efficient than MC
+
+For simulation-based search, bootstrapping is also helpful
+  TD search reduces variance but increases bias
+  TD search is usually more eficient than MC search
+  TD(𝜆) can be much more efficient than MC search
+
+TD Search
+  Simulate episodes from the current (real) state st
+  Estimate action-value function Q(s,a)
+  For each step of simulation, update action-values by Sarsa
+    ∆Q(S, A) = 𝛼 * (R + 𝛾 * Q(S', A') - Q(S,A))
+
+  Select actions based on action-values Q(s,a)
+    e.g. e-greedy
+
+  May also use function approximation for Q
+
+
+
+
+
+
+
+
+
 
 
 
