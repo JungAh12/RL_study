@@ -72,7 +72,26 @@ Examples of Models
   Linear Gaussian Model
   Gaussian Process Model
   Deep Belief Network Model
-  
+
+Table Lookup Model
+  Model is an explicit MDP, P_hat, R_hat
+  각 state action pair를 방문했을 때 마다 N(s,a)를 구하고
+  P_hat(a,ss')과 R_hat(s,a)를 평균을 통해 정해주는 것
+
+  Alternatively
+    각 time-step t에서 experience tuple을 기록 <St, At, R_(t+1), S_(t+1)>
+    model을 sample하기 위해 tuple을 random하게 선택
+
+#### Planning with a Model
+  Given a model Mn = <Pn, Rn>
+  Solve the MDP <S, A, Pn, Rn>
+  Using favourite planning algorithm
+    Value iteration
+    Policy iteration
+    Tree search
+    ....
+
+  가상의 MDP를 아는 상황이므로 VI, PI를 적용 가능
 
 
 
