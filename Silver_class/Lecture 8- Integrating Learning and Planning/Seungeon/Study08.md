@@ -190,9 +190,21 @@ Forward Search
 => 현재 상태는 particularly important하다. 지금으로 부터의 미래만 보겠다 라는 철학
 지금부터 이어지는 sub-MDP만 풀어낸다는 마인드
 
+Simulation-Based Search
+미래의 상황들을 sample based planning을 통해서 푸는 것
+  Forward search paradigm using sample-based planning
+  Simulate episodes of experience from now with the model
+  Apply model-free RL to simulated episodes
 
+=> St로부터 생성되는 많은 episode들을 simulation하는 것
+=> 그렇게 생성된 simulated episode들을 기반으로 model - free RL을 적용하는 것.
 
+  Simulate episodes of experience from now with the model
+    {k=1 -> K}{s^k_t, A^k_t, R^k_(t+1), ... , S^k_T} ~ Mv
 
+  Apply model-free RL to simulated episodes
+    Monte-Carlo control -> Monte-Carlo search
+    Sarsa -> TD search
 
 
 
