@@ -251,9 +251,16 @@ Converges on the optimal search tree, Q(S,A) -> q*(S,A)
 Advantages of MC Tree Search
   Highly selective best-first search
   Evaluates states dynamically (unlike e.g. DP)
+    => DP와 다르게 state를 동적으로 evaluation한다. 이 이유는 모든 state를 한번에 back up 하지 않아서.
+
   Uses sampling to break curse of dimensionality
+    => Sampling을 통해서 차원의 저주를 부순다.
+
   Works for "black-box" models (only requires samples)
+    => model이 black-box여도 진행이 된다.
+
   Computationally efficient, anytime, parallelisable
+    => 계산 효율적이고, 병렬적이라는 장점이 있다.
 
 #### Temporal - Difference Search
   Simulation-based search
@@ -267,10 +274,10 @@ MC vs TD search
     TD learning is usually more efficient than MC
     TD(𝜆) can be much more efficient than MC
 
-For simulation-based search, bootstrapping is also helpful
-  TD search reduces variance but increases bias
-  TD search is usually more eficient than MC search
-  TD(𝜆) can be much more efficient than MC search
+  For simulation-based search, bootstrapping is also helpful
+    TD search reduces variance but increases bias
+    TD search is usually more eficient than MC search
+    TD(𝜆) can be much more efficient than MC search
 
 TD Search
   Simulate episodes from the current (real) state st
@@ -283,7 +290,18 @@ TD Search
 
   May also use function approximation for Q
 
+#### Dyna-2
+In Dyna-2, the agent stores two sets of feature weights
+  Long-term memory
+  Short-term (working) memory
 
+Long-term memory is updated from real experience using TD learning
+  General domain knowledge that applies to any episode
+
+Short-term memory is updated from simulated experience using TD search
+  Specific local knowledge about the current situation
+
+Over value function is sum of long and short-term memories
 
 
 
