@@ -129,8 +129,47 @@ Planning with an inaccurate model
   => model의 uncertainty를 표현해 줌으로써 model을 사용할 수 있다.
     예를 들어 model이 30을 출력한다 라는 것을 model이 20~40사이에서 출력한다. 라는 식
 
-d
+***************
 
+### Integrated Architecture
+
+Real and Simulated Experience
+  we consider two sources of experience
+
+  Real experience - Sampled from environment (true MDP)
+    S' ~ P^a_ss'
+    R  = R^a_s
+
+  Simulated experience - Sampled from model (approximate MDP)
+    S' ~ Pn(S'| S,A)
+    R  = Rn(R | S,A)
+
+Integrating Learning and Planning
+  Model - Free RL
+    No model
+    Learn value function (and/or policy) from real experience
+
+  Model - Based RL
+    Learn a model from real experience
+    Plan value function (and/or policy) from simulated experience
+
+  Dyna
+    Learn a model from experience
+    Learn and plan value function (and/or policy) from real and simulated experience
+
+Dyna-Q Algorithm
+  Initialize Q(s,a) and Model(s,a) for all s and a
+  Do forever:
+    (a) S <- current (nonterminal) state
+    (b) A <- e-greedy(S,Q)
+    (c) Execute action A; observe resultant reward, R, and state, S'
+    (d) Q(S,A) <- Q(S,A) + 𝛼 * [R + gamma * max{Q(S',A)} - Q(S,A)]
+    (e) Model(S,A) <- R, S' (assuming deterministic environment)
+    (f) Repeat n times :
+        S <- random previously observed state
+        A <- random action previously taken in S
+        R, S' <- Model(S,A)
+        Q(S,A) <- Q(S,A) + 𝛼 * [R + gamma * max{Q(S',A)} - Q(S,A)]
 
 
 
