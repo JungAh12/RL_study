@@ -181,7 +181,7 @@ Dyna-Q on a Simple Maze example
 ### Simulation-Based Search
   어떻게 Planning을 효율적으로 진행 할 건지에 대한 강의
 
-Forward Search
+#### Forward Search
   Forward search algorithms select the best action by lookahead
   They build a search tree with the current state s_t at the root
   Using a model of the MDP to look ahead
@@ -190,7 +190,7 @@ Forward Search
 => 현재 상태는 particularly important하다. 지금으로 부터의 미래만 보겠다 라는 철학
 지금부터 이어지는 sub-MDP만 풀어낸다는 마인드
 
-Simulation-Based Search
+#### Simulation-Based Search
 미래의 상황들을 sample based planning을 통해서 푸는 것
   Forward search paradigm using sample-based planning
   Simulate episodes of experience from now with the model
@@ -206,10 +206,47 @@ Simulation-Based Search
     Monte-Carlo control -> Monte-Carlo search
     Sarsa -> TD search
 
+#### Simple Monte-Carlo Search
+  Given a model Mv and a simulation policy 𝜋
+  For each action a
+    Simulate K episodes from current (real) state s_t
+      {k=1 -> K}{s_t, a, R^k_(t+1), S^k_(t+1), S^k_(t+1), ... , S^k_T} ~ Mv,𝜋
 
+    Evaluate actions by mearn return (Monte-Carlo evaluation)
+      Q(s_t, a) = 1/K sum(G_t) -> q𝜋(st,a)
 
+  Select current (real) action with maximum value
+    at = {a} argmax Q(st,a)
 
+#### Monte - Carlo Tree Search (Evaluation)
+  Given a model Mv
+  Simulate K episodes from current state s_t using current simulation policy 𝜋
+    {k=1 -> K}{s_t, a, R^k_(t+1), S^k_(t+1), S^k_(t+1), ... , S^k_T} ~ Mv,𝜋
 
+  Build a search tree containing visited states and actions
+  Evaluate states Q(s,a) by mean return of episodes from s, a
+    Q(s, a) = 1/N(s,a) {k=1->K} Σ {u=t->T} Σ II(Su, Au = s,a) Gu -> q𝜋(s,a)
+
+  After search is finished, select current (real) action with maximum value in search tree
+    at = {a} argmax Q(st,a)
+
+모든 action에 대해 뭘 하는게 아니라 현재 policy에 대해서 simulation을 하는 것.
+
+In MCTS, the simulation policy 𝜋 improves!!
+=> Monte-Carlo search의 경우는 policy가 고정 되어 있었다. 근데 MCTS는 𝜋를 개선시킴
+
+Each simulation consists of two phase (in-tree, out-of-tree)
+  Tree policy (improves): pick actions to maximise Q(S,A)
+  => Q를 최대로 하는 action을 선택하는 policy (in-tree 일 경우 내가 Q 값을 아니깐)
+  Default policy (fixed): pick actions randomly
+  => 랜덤한 action을 선택하는 policy (out-of-tree 일 경우 내가 Q 값을 모르니깐)
+
+Repeat (each simulation)
+  Evaluate states Q(S,A) by Monte-Carlo evaluation
+  Improve tree policy, e.g. by e-greedy(Q)
+
+Monte-Carlo control applied to simulated experience
+Converges on the optimal search tree, Q(S,A) -> q*(S,A)
 
 
 
