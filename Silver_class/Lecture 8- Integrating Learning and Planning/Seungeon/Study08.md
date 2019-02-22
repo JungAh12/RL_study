@@ -111,8 +111,25 @@ Sample - Based Planning
   => DP는 순진하게 전부 다 back-up하는 반면, Sample based planning은 자주 일어나는
   사건에 더 집중적으로 planning을 할 수 있고, curse of dimensionality를 해결할 수 있다.
 
+=> Model 을 알 경우, Model을 통해서 무한한 경험들을 만들어 낼 수 있다. 그를 통해
+Model - free RL을 진행하면 아주 효과가 좋아 버린다.
 
+Planning with an inaccurate model
+  Given an imperfect model <Pn, Rn> ≠ <P, R>
+  Performance of model-based RL is limited to optimal policy for approximate MDP <S,A,Pn,Rn>
+  i.e. Model-based RL is only as good as estimated model
+  When the model is inaccurate, planning process will compute a suboptimal policy
+  Solution 1
+    When model is wrong, use model-free RL
+  Solution 2
+    reason explicitly about model uncertainty
 
+  => model이 좋은 만 큼 model-based RL의 효과가 좋을 것이다.
+  => model이 틀릴 경우, model을 안쓰고 model-free RL을 쓸 수 있을거고
+  => model의 uncertainty를 표현해 줌으로써 model을 사용할 수 있다.
+    예를 들어 model이 30을 출력한다 라는 것을 model이 20~40사이에서 출력한다. 라는 식
+
+d
 
 
 
