@@ -290,10 +290,12 @@ TD Search
 
   May also use function approximation for Q
 
-#### Dyna-2
+#### Dyna-2 앞에서 했던 Dyna의 다른 버젼
 In Dyna-2, the agent stores two sets of feature weights
   Long-term memory
   Short-term (working) memory
+  agent가 두개의 feature를 준비해서 Long-term memory에 관한 것은 실제 경험으로 학습
+  Short-term memory의 경우 simulated experience를 통해 학습
 
 Long-term memory is updated from real experience using TD learning
   General domain knowledge that applies to any episode
@@ -303,16 +305,22 @@ Short-term memory is updated from simulated experience using TD search
 
 Over value function is sum of long and short-term memories
 
+***
 
+#### 정리
+모델을 학습 하는방법과, 그를 이용하는 Model-Based RL을 배웠다.
+그 다음 그 Model을 아니까 Dynamic programming을 하는 방법도 배워봤고
 
+모델을 모르는 척 하고 모델에서 sample을 simulation을 통해 얻어서 model-free RL을 해보기도 했다.
 
+또한, real experience로 direct RL을 하고 model을 만드는 과정과
+model이 만든 simulated experience로 planning하는 과정이 통합된 Dyna에 대해서도 배웠다.
 
+마지막으로 Forward search에 대해서도 배웠다. 현재 상황에 특화해서 search하는 문제였음.
+그 중에서도 Simulation-based search를 배웠다. simulation으로 현재 상황에서의 experience를 막 만들어 낸 다음 search를 하는 것.
 
+만들어낸 experience를 Monte-Carlo method로 학습해 search하는 Monte-Carlo search도했고,
 
+주변의 노드도 다 기억하는 Monte-Carlo Tree search도 배웠었다!
 
-
-
-
-
-
-ㅇ
+마지막으로 TD Search에 대해서도 배웠음ㅎㅎ
