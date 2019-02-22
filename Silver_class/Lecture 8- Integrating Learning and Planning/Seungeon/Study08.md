@@ -130,7 +130,6 @@ Planning with an inaccurate model
     예를 들어 model이 30을 출력한다 라는 것을 model이 20~40사이에서 출력한다. 라는 식
 
 ***************
-
 ### Integrated Architecture
 
 Real and Simulated Experience
@@ -174,9 +173,22 @@ Dyna-Q Algorithm pseudo code
 
     => (e)과정은 Model learning이고 (f)과정은 model을 통한 planning!
 
+Dyna-Q on a Simple Maze example
+  아주 조금의 경험을 가지고 그걸 쥐어 짜내서 data를 효율적으로 사용하는 방법이라고
+  실버 교수님이 언급 했다고 함.
 
+***************
+### Simulation-Based Search
+  어떻게 Planning을 효율적으로 진행 할 건지에 대한 강의
 
+Forward Search
+  Forward search algorithms select the best action by lookahead
+  They build a search tree with the current state s_t at the root
+  Using a model of the MDP to look ahead
+  No need to solve whole MDP, just sub-MDP starting from now
 
+=> 현재 상태는 particularly important하다. 지금으로 부터의 미래만 보겠다 라는 철학
+지금부터 이어지는 sub-MDP만 풀어낸다는 마인드
 
 
 
