@@ -93,9 +93,23 @@ Table Lookup Model
 
   가상의 MDP를 아는 상황이므로 VI, PI를 적용 가능
 
+Sample - Based Planning
+  A simple but powerful approach to planning
+  Use the model only to generate samples
+  Sample experience from model
+    S_(t+1) ~ Pn(S_(t+1) | S_t, A_t)
+    R_(t+1) = Rn(R_(t+1) | S_t, A_t)
 
+  Apply model-free RL to samples e.g. :
+    Monte-Carlo control
+    Sarsa
+    Q-learning
 
+  Sample-based planning methods are often more efficient
 
+  => Sample들을 model을 기반으로 마구 만들어낸 다음 model-free RL 기법을 사용하는 것
+  => DP는 순진하게 전부 다 back-up하는 반면, Sample based planning은 자주 일어나는
+  사건에 더 집중적으로 planning을 할 수 있고, curse of dimensionality를 해결할 수 있다.
 
 
 
