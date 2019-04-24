@@ -18,9 +18,9 @@
 
 ## 발표형식
 * summary
-  ** motivation
-  ** main method
-  ** result
+  * motivation
+  * main method
+  * result
   
 ## 논문리스트
 https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html
