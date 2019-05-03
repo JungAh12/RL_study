@@ -23,5 +23,6 @@
   * result
   
 ## 논문리스트
+https://github.com/junhyukoh/deep-reinforcement-learning-papers
 https://spinningup.openai.com/en/latest/spinningup/rl_intro2.html
 
